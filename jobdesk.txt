@@ -1,0 +1,3 @@
+models & databases => canro, haikal.
+
+controllers & routes => imam fachrie, sadam, candra, gusti, jody, rafi, rizki fachrizal.
