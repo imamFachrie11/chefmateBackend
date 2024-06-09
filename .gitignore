@@ -1,0 +1,67 @@
+# Temporary files
+*~
+.*.sw[a-z]
+*.sw[a-z]
+*.swo
+*.swp
+*.tmp
+*.temp
+
+# Node.js dependencies
+/node_modules/
+
+# Generated directories
+/build/
+/dist/
+/out/
+/.idea/
+/.vscode/
+/.sass-cache/
+/bower_components/
+/jspm_packages/
+/vendor/
+
+# Configuration files with sensitive information
+.env
+.env.local
+.env.*.local
+*.sqlite
+*.sqlite3
+*.log
+
+# User-specific project configuration files
+*.sublime-project
+*.sublime-workspace
+*.idea/
+*.iml
+*.ipr
+
+# Editor backups and auto-generated files
+*.bak
+*.backup
+*.cache
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.pdb
+*.dll
+*.exe
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# IDE or editor specific files
+.vscode/
+.idea/
+
+# Application logs
+*.log
+*.log.*
+
+# Cache and data files
+.cache
