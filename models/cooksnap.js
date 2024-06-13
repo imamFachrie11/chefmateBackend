@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      cooksnap.hasMany(models.recipe, {
+        foreignKey: "id_recipe",
+        as: "recipe"
+      })
     }
   }
   cooksnap.init({
