@@ -33,8 +33,28 @@ const register = async (req, res, next) => {
 };
 
 const login = async (req, res, next) => {
-  res.send({
-    message: "ini login",
+  const { email, password } = req.body;
+
+  const user = await userModels.findOne({ where: { email_user: email } });
+  if (!user) {
+    return res.status(404).send({ message: "nama/password salah" });
+  }
+
+  const isValid = await bcrypt.compare(password, user.password_user);
+  if (!isValid) {
+    return res.status(404).send({ message: "nama/password salah" });
+  }
+
+  const data = {
+    id: user.id,
+    email: user.email,
+  };
+
+  const token = jwt.sign(data, process.env.JWT_SECRET);
+
+  return res.send({
+    message: "login berhasil",
+    data: { token }, // token : token
   });
 };
 
