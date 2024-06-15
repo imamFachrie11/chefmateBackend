@@ -11,8 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       favorite.hasMany (models.user, {
-        foreignKey: "user_id",
+        foreignKey: "id_user",
         as: "users"
+      });
+      favorite.belongsTo (models.recipe, {
+        foreignKey: "id_recipe",
+        as: "recipes"
       })
     }
   }

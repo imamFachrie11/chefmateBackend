@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       cooksnap.hasMany(models.recipe, {
         foreignKey: "id_recipe",
         as: "recipes"
+      });
+      cooksnap.hasMany(models.user, {
+        foreignKey: "id_user",
+        as: "users"
       })
     }
   }

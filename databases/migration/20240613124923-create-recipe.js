@@ -1,4 +1,7 @@
 'use strict';
+
+const favorite = require('../../models/favorite');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -21,11 +24,19 @@ module.exports = {
       durasi: {
         type: Sequelize.INTEGER
       },
-      id_recipe: {
-        type: Sequelize.INTEGER
+      id_user: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "users",
+          key: "id",
+        },
       },
       id_favorite: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        // references: { (ini g tau bg g bisa sisanya relasiny aman)
+        //   model: "favorites",
+        //   key: "id",
+        // }, 
       },
       created_at: {
         allowNull: false,

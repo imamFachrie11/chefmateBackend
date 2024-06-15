@@ -114,14 +114,15 @@ module.exports = {
     //   { id: 4, id_user: 4 },
     //   { id: 5, id_user: 5 },
     // ]);
-    // await cooksnap.bulkInsert("cooksnaps", [
-    //   {
-    //     id: 1,
-    //     nama_cooksnap: "nama 1",
-    //     gambar_cooksnap: "gambar_cooksnap_1",
-    //     id_user: 1,
-    //     id_recipe: 1,
-    //   },
+    await cooksnap.bulkInsert("cooksnaps", [
+      {
+        id: 1,
+        nama_cooksnap: "nama 1",
+        gambar_cooksnap: "gambar_cooksnap_1",
+        id_user: 1,
+        id_recipe: 1,
+      },
+    ]);
     //   {
     //     id: 2,
     //     nama_cooksnap: "nama 2",

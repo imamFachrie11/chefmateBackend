@@ -14,13 +14,17 @@ module.exports = {
       },
       id_user: {
         type: Sequelize.INTEGER,
-        references: {
+        references: { 
           model: "users",
           key: "id",
         },
       },
       id_recipe: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "recipes",
+          key: "id",
+        },
       },
       created_at: {
         allowNull: false,

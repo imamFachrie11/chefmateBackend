@@ -13,7 +13,11 @@ module.exports = {
         type: Sequelize.TEXT
       },
       id_recipe: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model:"recipes",
+          key: "id",
+        },
       },
       created_at: {
         allowNull: false,

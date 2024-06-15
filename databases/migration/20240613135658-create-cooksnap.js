@@ -9,17 +9,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nama_cooknsap: {
+      name_cooksnap: {
         type: Sequelize.STRING
       },
       gambar_cooksnap: {
         type: Sequelize.STRING
       },
       id_user: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: "users",
+          key: "id",
+        },
       },
       id_recipe: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: "recipes",
+          key: "id",
+        },
       },
       created_at: {
         allowNull: false,

@@ -8,30 +8,38 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      recipe.hasMany(models.cooksnap, {
+      recipe.belongsTo(models.cooksnap, {
         foreignKey: "id_cooksnap",
         as: "cooksnaps",
       });
+      recipe.belongsTo(models.user, {
+        foreignKey: "id_user",
+        as: "users",
+      });
       recipe.hasMany(models.jenis_makanan, {
-        foreignKey: "id_recipe",
+        foreignKey: "id_jenis_makanan",
         as: "jenis_makanans",
       });
       recipe.hasMany(models.bahan, {
-        foreignKey: "id_recipe",
+        foreignKey: "id_bahan",
         as: "bahans",
       });
       recipe.hasMany(models.langkah, {
-        foreignKey: "id_recipe",
+        foreignKey: "id_langkah",
         as: "langkahs",
       });
       recipe.hasMany(models.komentar, {
-        foreignKey: "id_recipe",
+        foreignKey: "id_komentar",
         as: "komentars",
       });
       recipe.hasMany(models.reaksi, {
-        foreignKey: "id_recipe",
+        foreignKey: "id_reaksi",
         as: "reaksis",
       });
+      recipe.hasMany(models.favorite, {
+        foreignKey: "id_favorite",
+        as: "favorites",
+      })
     }
   }
   recipe.init(
