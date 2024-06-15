@@ -4,8 +4,8 @@
   "description": "recipe web aplication, server side",
   "main": "./index.js",
   "scripts": {
-    "start": "nodemon ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js --watch index.js --watch package.json --watch .env",
+    "start": "node index.js"
   },
   "author": "kelompok_8",
   "license": "ISC",
