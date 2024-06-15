@@ -84,7 +84,27 @@ module.exports = {
       { id: 1, deskripsi: "deskripsi 4", id_user: 4, id_recipe: 4},
       { id: 1, deskripsi: "deskripsi 5", id_user: 5, id_recipe: 5},
     ]);
-    await queryInterface
+    await queryInterface.bulkInsert("reaksis", [
+      { id: 1, nama_reaksi: "nama 1", id_user: 1, id_recipe: 1},
+      { id: 2, nama_reaksi: "nama 2", id_user: 2, id_recipe: 2},
+      { id: 3, nama_reaksi: "nama 3", id_user: 3, id_recipe: 3},
+      { id: 4, nama_reaksi: "nama 4", id_user: 4, id_recipe: 4},
+      { id: 5, nama_reaksi: "nama 5", id_user: 5, id_recipe: 5},
+    ]);
+    await queryInterface.bulkInsert("favorites", [
+      { id: 1, id_user: 1},
+      { id: 2, id_user: 2},
+      { id: 3, id_user: 3},
+      { id: 4, id_user: 4},
+      { id: 5, id_user: 5},
+    ]);
+    await cooksnap.bulkInsert("cooksnaps", [
+      { id: 1, nama_cooksnap:"nama 1", gambar_cooksnap:"gambar_cooksnap_1", id_user: 1, id_recipe: 1},
+      { id: 2, nama_cooksnap:"nama 2", gambar_cooksnap:"gambar_cooksnap_2", id_user: 2, id_recipe: 2},
+      { id: 3, nama_cooksnap:"nama 3", gambar_cooksnap:"gambar_cooksnap_3", id_user: 3, id_recipe: 3},
+      { id: 4, nama_cooksnap:"nama 4", gambar_cooksnap:"gambar_cooksnap_4", id_user: 4, id_recipe: 4},
+      { id: 5, nama_cooksnap:"nama 5", gambar_cooksnap:"gambar_cooksnap_5", id_user: 5, id_recipe: 5},
+    ])
   },
   /**
    * @param {import('sequelize').QueryInterface} _queryInterface

@@ -15,24 +15,24 @@ module.exports = (sequelize, DataTypes) => {
         as: "cooksnaps"
       });
       recipe.belongsToMany(models.jenis_makanan, {
-        foreignKey: "id_jenis_makanan",
-        as: "jenis_makanans"
+        foreignKey: "id_recipe",
+        as: "recipes"
       });
       recipe.belongsToMany(models.bahan, {
-        foreignKey: "id_bahan",
-        as: "bahans"
+        foreignKey: "id_recipe",
+        as: "recipes"
       });
       recipe.belongsToMany(models.langkah, {
-        foreignKey: "id_langkah",
-        as: "langkahs"
+        foreignKey: "id_recipe",
+        as: "recipes"
       });
       recipe.belongsToMany(models.komentar, {
-        foreignKey: "id_komentar",
-        as: "komentars"
+        foreignKey: "id_recipes",
+        as: "recipes"
       });
       recipe.belongsToMany(models.reaksi, {
-        foreignKey: "id_reaksi",
-        as: "reaksis"
+        foreignKey: "id_recipes",
+        as: "recipes"
       })
     }
   }
