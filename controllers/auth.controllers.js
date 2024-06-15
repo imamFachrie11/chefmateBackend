@@ -35,7 +35,20 @@ const register = async (req, res, next) => {
 const login = async (req, res, next) => {
   const { email, password } = req.body;
 
-  const user = await userModels.findOne({ where: { email_user: email } });
+  const user = await userModels.findOne({
+    where: { email_user: email },
+    attributes: [
+      "id",
+      "name_user",
+      "email_user",
+      "password_user",
+      "deskripsi_user",
+      "gambar",
+      "created_at",
+      "updated_at",
+    ],
+  });
+
   if (!user) {
     return res.status(404).send({ message: "nama/password salah" });
   }

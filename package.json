@@ -4,7 +4,7 @@
   "description": "recipe web aplication, server side",
   "main": "./index.js",
   "scripts": {
-    "dev": "nodemon index.js --watch index.js --watch package.json --watch .env",
+    "dev": "nodemon index.js --watch index.js --watch package.json --watch .env --watch config/ --watch controllers/ --watch models/ --watch routes/",
     "start": "node index.js"
   },
   "author": "kelompok_8",
