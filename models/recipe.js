@@ -12,27 +12,27 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       recipe.belongsTo(models.cooksnap, {
         foreignKey: "id_cooksnap",
-        as: "cooksnap"
+        as: "cooksnaps"
       });
       recipe.belongsToMany(models.jenis_makanan, {
         foreignKey: "id_jenis_makanan",
-        as: "jenis_makanan"
+        as: "jenis_makanans"
       });
       recipe.belongsToMany(models.bahan, {
         foreignKey: "id_bahan",
-        as: "bahan"
+        as: "bahans"
       });
       recipe.belongsToMany(models.langkah, {
         foreignKey: "id_langkah",
-        as: "langkah"
+        as: "langkahs"
       });
       recipe.belongsToMany(models.komentar, {
         foreignKey: "id_komentar",
-        as: "komentar"
+        as: "komentars"
       });
       recipe.belongsToMany(models.reaksi, {
         foreignKey: "id_reaksi",
-        as: "reaksi"
+        as: "reaksis"
       })
     }
   }

@@ -16,19 +16,19 @@ module.exports = (sequelize, DataTypes) => {
       });
       user.hasMany(models.cooksnap,{
         foreignKey: "id_cooksnap",
-        as: "cooksnap"
+        as: "cooksnaps"
       })
       user.belongsToMany(models.komentar, {
         foreignKey: "id_komentar",
-        as: "komentar"
+        as: "komentars"
       });
       user.hasMany(models.reaksi, {
         foreignKey: "id_reaksi",
-        as: "reaksi"
+        as: "reaksis"
       });
       user.belongsToMany(models.favorite, {
         foreignKey: "id_favorite",
-        as: "favorite"
+        as: "favorites"
       })
     }
   }

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       jenis_makanan.belongsTo (models.recipe, {
         foreignKey: "id_recipe",
-        as: "recipe"
+        as: "recipes"
       })
     }
   }
