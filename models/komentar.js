@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      komentar.belongsTo (models.recipe, {
+      komentar.hasMany (models.recipe, {
         foreignKey: "id_recipe",
         as: "recipes"
       })
