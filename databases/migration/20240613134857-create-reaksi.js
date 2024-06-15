@@ -1,36 +1,40 @@
-'use strict';
+"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('reaksis', {
+    await queryInterface.createTable("reaksis", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       nama_reaksi: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       id_user: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: "users",
+          key: "id",
+        },
       },
       id_recipe: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       created_at: {
         allowNull: false,
         defaultValue: Sequelize.fn("NOW"),
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updated_at: {
         allowNull: false,
         defaultValue: Sequelize.fn("NOW"),
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('reaksis');
-  }
+    await queryInterface.dropTable("reaksis");
+  },
 };
