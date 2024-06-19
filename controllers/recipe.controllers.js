@@ -73,7 +73,18 @@ const index = async (req, res, next) => {
       },
       {
         association: "reaksis",
-        attributes: ["id", "nama_reaksi", "id_user", "id_recipe"],
+        attributes: [
+          "id",
+          "nama_reaksi",
+          "id_user",
+          "id_recipe",
+          [
+            recipeModel.sequelize.literal(
+              `(SELECT name_user FROM users AS u WHERE u.id = reaksis.id_user )`
+            ),
+            "name_user",
+          ],
+        ],
       },
       {
         association: "users",
