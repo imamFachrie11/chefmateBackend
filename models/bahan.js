@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       bahan.belongsTo(models.recipe, {
-        foreignKey: "id",
+        foreignKey: "id_recipe",
         as: "recipes",
       });
     }
