@@ -32,11 +32,21 @@ module.exports = {
     await queryInterface.bulkInsert("users", [
       {
         id: 1,
-        email_user: "sadam@example.com",
+        email_user: "sadam@gmail.com",
         name_user: "sadam",
         password_user:
-          "$2a$12$X5.8wO1LDwL3kFkuywO0x.S5F/BEPe1OKapLY5NtEH0J1RfmAMXJG",
-        deskripsi_user: "beta tess massukk mass",
+          "$2a$12$X5.8wO1LDwL3kFkuywO0x.S5F/BEPe1OKapLY5NtEH0J1RfmAMXJG", //sadam
+        deskripsi_user: "lohe kok bisa begini terus pada kemana ini?",
+        gambar: "gambar/user.jpg",
+      },
+      {
+        id: 2,
+        email_user: "yo@gmail.com",
+        name_user: "yo",
+        password_user:
+          "$2a$12$GvcOCCiKubV3U58uljXsW.WEQ0QKABC6OPZAFUyveuQJezgOR51bS", //yo
+        deskripsi_user:
+          "awalnya saya coba ternyata gampang jadinya saya buat deh resepnya",
         gambar: "gambar/user.jpg",
       },
     ]);
@@ -48,6 +58,8 @@ module.exports = {
         foto_recipe: "ayamhongkong.jpg",
         porsi: 2,
         durasi: 30,
+        id_user: 2,
+        id_favorite: 1,
       },
       { id: 2, judul: "judul 2", foto_recipe: "foto 2", porsi: 2, durasi: 2 },
     ]);
@@ -93,31 +105,17 @@ module.exports = {
         id_recipe: 5,
       },
     ]);
-    // await queryInterface.bulkInsert("komentars", [
-    //   { id: 1, deskripsi: "deskripsi 1", id_user: 1, id_recipe: 1 },
-    //   { id: 1, deskripsi: "deskripsi 2", id_user: 2, id_recipe: 2 },
-    //   { id: 1, deskripsi: "deskripsi 3", id_user: 3, id_recipe: 3 },
-    //   { id: 1, deskripsi: "deskripsi 4", id_user: 4, id_recipe: 4 },
-    //   { id: 1, deskripsi: "deskripsi 5", id_user: 5, id_recipe: 5 },
-    // ]);
-    // await queryInterface.bulkInsert("reaksis", [
-    //   { id: 1, nama_reaksi: "nama 1", id_user: 1, id_recipe: 1 },
-    //   { id: 2, nama_reaksi: "nama 2", id_user: 2, id_recipe: 2 },
-    //   { id: 3, nama_reaksi: "nama 3", id_user: 3, id_recipe: 3 },
-    //   { id: 4, nama_reaksi: "nama 4", id_user: 4, id_recipe: 4 },
-    //   { id: 5, nama_reaksi: "nama 5", id_user: 5, id_recipe: 5 },
-    // ]);
-    // await queryInterface.bulkInsert("favorites", [
-    //   { id: 1, id_user: 1 },
-    //   { id: 2, id_user: 2 },
-    //   { id: 3, id_user: 3 },
-    //   { id: 4, id_user: 4 },
-    //   { id: 5, id_user: 5 },
-    // ]);
-    await cooksnap.bulkInsert("cooksnaps", [
+    await queryInterface.bulkInsert("komentars", [
+      { id: 1, deskripsi: "keren abis", id_user: 1, id_recipe: 1 },
+    ]);
+    await queryInterface.bulkInsert("reaksis", [
+      { id: 1, nama_reaksi: "like", id_user: 1, id_recipe: 1 },
+    ]);
+    await queryInterface.bulkInsert("favorites", [{ id: 1, id_user: 1 }]);
+    await queryInterface.bulkInsert("cooksnaps", [
       {
         id: 1,
-        nama_cooksnap: "nama 1",
+        name_cooksnap: "enak banget",
         gambar_cooksnap: "gambar_cooksnap_1",
         id_user: 1,
         id_recipe: 1,

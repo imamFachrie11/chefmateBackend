@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      recipe.belongsTo(models.cooksnap, {
-        foreignKey: "id_cooksnap",
+      recipe.hasMany(models.cooksnap, {
+        foreignKey: "id_recipe",
         as: "cooksnaps",
       });
       recipe.belongsTo(models.user, {
@@ -17,29 +17,29 @@ module.exports = (sequelize, DataTypes) => {
         as: "users",
       });
       recipe.hasMany(models.jenis_makanan, {
-        foreignKey: "id_jenis_makanan",
+        foreignKey: "id_recipe",
         as: "jenis_makanans",
       });
       recipe.hasMany(models.bahan, {
-        foreignKey: "id_bahan",
+        foreignKey: "id_recipe",
         as: "bahans",
       });
       recipe.hasMany(models.langkah, {
-        foreignKey: "id_langkah",
+        foreignKey: "id_recipe",
         as: "langkahs",
       });
       recipe.hasMany(models.komentar, {
-        foreignKey: "id_komentar",
+        foreignKey: "id_recipe",
         as: "komentars",
       });
       recipe.hasMany(models.reaksi, {
-        foreignKey: "id_reaksi",
+        foreignKey: "id_recipe",
         as: "reaksis",
       });
-      recipe.hasMany(models.favorite, {
+      recipe.belongsTo(models.favorite, {
         foreignKey: "id_favorite",
         as: "favorites",
-      })
+      });
     }
   }
   recipe.init(
@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
       foto_recipe: DataTypes.STRING,
       porsi: DataTypes.INTEGER,
       durasi: DataTypes.INTEGER,
-      id_recipe: DataTypes.INTEGER,
+      id_user: DataTypes.INTEGER,
       id_favorite: DataTypes.INTEGER,
     },
     {
