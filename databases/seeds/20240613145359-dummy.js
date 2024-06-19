@@ -121,7 +121,9 @@ module.exports = {
       await queryInterface.bulkInsert("reaksis", [
         { id: 1, nama_reaksi: "like", id_user: 1, id_recipe: 1 },
       ]);
-      await queryInterface.bulkInsert("favorites", [{ id: 1, id_user: 1 }]);
+      await queryInterface.bulkInsert("favorites", [{ id: 1, id_user: 1 }
+      ]);
+
       await queryInterface.bulkInsert("cooksnaps", [
         {
           id: 1,
@@ -130,26 +132,6 @@ module.exports = {
           id_user: 1,
           id_recipe: 1,
         },
-      ]);
-
-      await queryInterface.bulkInsert("komentars", [
-        { id: 1, deskripsi: "deskripsi 1", id_user: 1, id_recipe: 1},
-        // Masukkan data lainnya jika diperlukan
-      ]);
-
-      await queryInterface.bulkInsert("reaksis", [
-        { id: 1, nama_reaksi: "nama 1", id_user: 1, id_recipe: 1},
-        // Masukkan data lainnya jika diperlukan
-      ]);
-
-      await queryInterface.bulkInsert("favorites", [
-        { id: 1, id_user: 1},
-        // Masukkan data lainnya jika diperlukan
-      ]);
-
-      await queryInterface.bulkInsert("cooksnaps", [
-        { id: 1, name_cooksnap:"nama 1", gambar_cooksnap:"gambar_cooksnap_1", id_user: 1, id_recipe: 1},
-        // Masukkan data lainnya jika diperlukan
       ]);
 
       console.log('Seeding berhasil.');

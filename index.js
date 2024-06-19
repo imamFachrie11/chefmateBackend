@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use("/auth", loginRouter);
 app.use("/recipe", recipeRouter);
-app.use("/reaksi", reaksiRouter);
+app .use("/reaksi", reaksiRouter);
 
 app.listen(process.env.SERVER_PORT || 3000, () => {
   console.log("Server Running");
