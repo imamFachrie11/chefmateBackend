@@ -33,7 +33,7 @@ module.exports = {
       },
       id_favorite: {
         type: Sequelize.INTEGER,
-        // references: { (ini g tau bg g bisa sisanya relasiny aman)
+        // references: { //(ini g tau bg g bisa sisanya relasiny aman)
         //   model: "favorites",
         //   key: "id",
         // }, 
