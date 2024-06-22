@@ -18,23 +18,21 @@ const index = async (req, res, next) => {
     include: [
       {
         association: "jenis_makanans",
-        attributes: ["id", "nama_jenis_makanan", "id_recipe"],
+        attributes: ["id", "nama_jenis_makanan"],
       },
       {
         association: "bahans",
-        attributes: ["id", "nama_bahan", "id_recipe"],
+        attributes: ["id", "nama_bahan"],
       },
       {
         association: "langkahs",
-        attributes: ["id", "nama_langkah", "id_recipe"],
+        attributes: ["id", "nama_langkah"],
       },
       {
         association: "komentars",
         attributes: [
           "id",
           "deskripsi",
-          "id_user",
-          "id_recipe",
           [
             recipeModel.sequelize.literal(
               `(SELECT name_user FROM users AS u WHERE u.id = komentars.id_user )`
@@ -55,8 +53,6 @@ const index = async (req, res, next) => {
           "id",
           "name_cooksnap",
           "gambar_cooksnap",
-          "id_user",
-          "id_recipe",
           [
             recipeModel.sequelize.literal(
               `(SELECT name_user FROM users AS u WHERE u.id = cooksnaps.id_user )`
@@ -76,8 +72,6 @@ const index = async (req, res, next) => {
         attributes: [
           "id",
           "nama_reaksi",
-          "id_user",
-          "id_recipe",
           [
             recipeModel.sequelize.literal(
               `(SELECT name_user FROM users AS u WHERE u.id = reaksis.id_user )`
