@@ -1,27 +1,7 @@
-const { reaksi: reaksiModel } = require("../models");
+const { reaksi: reaksiModel, recipe: recipeModel } = require("../models");
 
-const createReaksi = async (req, res, next) => {
-  const { nama_reaksi, id_recipe } = req.body;
-  console.log(req.user.id);
-
-  //   const reaksi = await reaksiModel.findAll({});
-
-  await reaksiModel
-    .create({
-      nama_reaksi: nama_reaksi,
-      id_user: req.user.id,
-      id_recipe: id_recipe,
-    })
-    .then((dataResponse) => {
-      return res.status(201).send({
-        message: "reaksi berhasil di tambahkan",
-        data: dataResponse,
-      });
-    });
-};
-
-const lookReaksi = async (req, res, next) => {
-  const { id_reaksi } = req.query;
+const index = async (req, res, next) => {
+  const { id_reaksi } = req.params;
 
   const reaksi = await reaksiModel.findAll({
     where: id_reaksi ? { id: id_reaksi } : {},
@@ -45,7 +25,31 @@ const lookReaksi = async (req, res, next) => {
   });
 };
 
+const create = async (req, res, next) => {
+  const { id_recipe } = req.params;
+  const { nama_reaksi } = req.body;
+  const userId = req.user.id;
+
+  const existingRecipe = await recipeModel.findByPk(id_recipe);
+  if (!existingRecipe) {
+    return res.status(404).json({ message: "recipe not found" });
+  }
+
+  await reaksiModel
+    .create({
+      nama_reaksi: nama_reaksi,
+      id_user: userId,
+      id_recipe: id_recipe,
+    })
+    .then((dataResponse) => {
+      return res.status(201).send({
+        message: "reaksi berhasil di tambahkan",
+        data: dataResponse,
+      });
+    });
+};
+
 module.exports = {
-  createReaksi,
-  lookReaksi,
+  index,
+  create,
 };

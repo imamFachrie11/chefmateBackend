@@ -2,13 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 
-const {
-  createReaksi,
-  lookReaksi,
-} = require("../controllers/reaksi.controllers");
+const { index, create } = require("../controllers/reaksi.controllers");
 const { validateToken } = require("../middlewares/auth");
 
-router.post("/", validateToken, createReaksi);
-router.get("/", lookReaksi);
+router.get("/:id_reaksi?", index);
+router.post("/:id_recipe", validateToken, create);
 
 module.exports = router;
