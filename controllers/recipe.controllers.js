@@ -1,3 +1,5 @@
+const Sequelize = require("sequelize").Sequelize;
+
 const { recipe: recipeModel } = require("../models");
 
 const index = async (req, res, next) => {
@@ -99,6 +101,42 @@ const index = async (req, res, next) => {
   });
 };
 
+/**
+ * @param {import("express").Request} req
+ * @param {import("express").Response} res
+ * @param {import("express").NextFunction} next
+ */
+const update = async (req, res, next) => {
+  const { id } = req.params;
+  const userId = req.user.id;
+
+  const { judul, foto_recipe, porsi, durasi } = req.body;
+
+  const existingRecipe = await recipeModel.findByPk(id);
+  if (!existingRecipe) {
+    return res.status(404).json({ message: "Recipe not found" });
+  }
+
+  if (existingRecipe.id_user != userId) {
+    return res.status(403).json({
+      message: "Forbidden: you do not have prermission to update this recipe",
+    });
+  }
+
+  const updatedRecipe = await existingRecipe.update({
+    judul,
+    foto_recipe,
+    porsi,
+    durasi,
+  });
+
+  return res.send({
+    message: "Data has been updated",
+    data: updatedRecipe,
+  });
+};
+
 module.exports = {
   index,
+  update,
 };
