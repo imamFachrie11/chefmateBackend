@@ -1,3 +1,28 @@
 models & databases => canro, haikal.
 
 controllers & routes => imam fachrie, sadam, candra, gusti, jody, rafi, rizki fachrizal.
+
+
+// 1 create recipe rizki fachrizal.
+// 2 update recipe sadam,
+// 3 delete recipe jody,
+// 4 detail recipe by id recipe gusti,
+// 5 read recipe limit 10 candra,
+
+// +favorite controller
+
+// 6 add favorite rafi,
+// 7 get favorite by id and recipe id imam fachrie,
+// 8 delete favorite rafi
+
+// +komentar controller
+
+// 9 Create komentar gusti,
+// 10 Read komentar imam fachrie,
+// 11 delete komentar optional jody,
+
+// +jenis makanan controller
+// 12 read jenis makanan rizki fachrizal.
+
+// optional , dikerjakan setelah be selesai
+// produk dihalaman home mengambil dari bahan/jenis makanan + update database dengan gambar
