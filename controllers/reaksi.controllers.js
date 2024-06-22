@@ -49,7 +49,36 @@ const create = async (req, res, next) => {
     });
 };
 
+const update = async (req, res, next) => {
+  const { id_reaksi } = req.params;
+  const userId = req.user.id;
+  console.log(userId);
+
+  const { nama_reaksi } = req.body;
+
+  const existingReaksi = await reaksiModel.findByPk(id_reaksi);
+  if (!existingReaksi) {
+    return res.status(404).json({ message: "Reaksi not found" });
+  }
+
+  if (existingReaksi.id_user != userId) {
+    return res.status(403).json({
+      message: "Forbidden: you do not have prermission to update this reaksi",
+    });
+  }
+
+  const updatedReaksi = await existingReaksi.update({
+    nama_reaksi,
+  });
+
+  return res.send({
+    message: "Data has been updated",
+    data: updatedReaksi,
+  });
+};
+
 module.exports = {
   index,
   create,
+  update,
 };
