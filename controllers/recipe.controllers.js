@@ -1,9 +1,7 @@
-const Sequelize = require("sequelize").Sequelize;
-
 const { recipe: recipeModel } = require("../models");
 
 const index = async (req, res, next) => {
-  const { id_recipe } = req.query;
+  const { id_recipe } = req.params;
 
   const recipe = await recipeModel.findAll({
     where: id_recipe ? { id: id_recipe } : {},
@@ -107,12 +105,12 @@ const index = async (req, res, next) => {
  * @param {import("express").NextFunction} next
  */
 const update = async (req, res, next) => {
-  const { id } = req.params;
+  const { id_recipe } = req.params;
   const userId = req.user.id;
 
   const { judul, foto_recipe, porsi, durasi } = req.body;
 
-  const existingRecipe = await recipeModel.findByPk(id);
+  const existingRecipe = await recipeModel.findByPk(id_recipe);
   if (!existingRecipe) {
     return res.status(404).json({ message: "Recipe not found" });
   }
