@@ -17,6 +17,9 @@ module.exports = {
       },
       foto_recipe: {
         type: Sequelize.STRING
+      }, 
+      foto_recipe_url: {
+        type: Sequelize.STRING
       },
       porsi: {
         type: Sequelize.INTEGER
@@ -33,10 +36,17 @@ module.exports = {
       },
       id_favorite: {
         type: Sequelize.INTEGER,
-        references: { //(ini g tau bg g bisa sisanya relasiny aman)
+        references: {
           model: "favorites",
           key: "id",
         }, 
+        id_kategori: {
+          type: Sequelize.INTEGER,
+          references: {
+            model: "kategoris",
+            key: "id",
+          },
+        }
       },
       created_at: {
         allowNull: false,
