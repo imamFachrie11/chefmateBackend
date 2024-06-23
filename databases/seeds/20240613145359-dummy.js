@@ -134,6 +134,23 @@ module.exports = {
         },
       ]);
 
+      await queryInterface.bulkInsert("kategoris", [
+        {
+          id: 1,
+          nama_kategori: "sarapan",
+          nama_foto_kategori: "bubur ayam pak haji mamat",
+          foto_kategori_url: "foto bubur.jpg",
+          id_recipe: 1,
+        },
+        {
+          id: 2,
+          nama_kategori: "kue pukis antoni",
+          nama_foto_kategori: "kue pukis by ibu jamiah",
+          foto_kategori_url: "foto pukis halal.jpg",
+          id_recipe: 1,
+        }
+      ]);
+
       console.log('Seeding berhasil.');
 
     } catch (error) {
