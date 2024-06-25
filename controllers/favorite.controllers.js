@@ -2,7 +2,7 @@ const { favorite: Favorite, recipe: Recipe } = require("../models");
 
 //  menambahkan favorite baru
 const addFavorite = async (req, res) => {
-  const { userId, recipeId } = req.body;
+  const { userId, id_recipe } = req.body;
 
   try {
     const favorite = await Favorite.create({
@@ -10,7 +10,7 @@ const addFavorite = async (req, res) => {
     });
 
     // Menyambungkan favorite dengan recipe
-    await favorite.addRecipe(recipeId);
+    await favorite.addRecipe(id_recipe);
 
     res.status(201).json({ message: 'Favorite added successfully', favorite });
   } catch (error) {
@@ -18,50 +18,47 @@ const addFavorite = async (req, res) => {
   }
 };
 
-
-//mengambil favorite berdasarkan ID dan ID resep
+// mengambil favorite berdasarkan ID dan ID resep
 const getFavoriteByIdAndRecipeId = async (req, res) => {
-    const { id, recipeId } = req.params;
-  
-    try {
-      const favorite = await Favorite.findByPk(id, {
-        include: [{
-          model: Recipe,
-          as: 'recipes',
-          where: { id: recipeId },
-        }],
-      });
-  
-      if (!favorite) {
-        return res.status(404).json({ message: 'Favorite not found' });
-      }
-  
-      res.status(200).json(favorite);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  };
+  const { id, id_recipe } = req.params;
 
-  // Controller untuk menghapus favorite berdasarkan ID
-const deleteFavorite = async (req, res) => {
-    const { id } = req.params;
-  
-    try {
-      const favorite = await Favorite.findByPk(id);
-  
-      if (!favorite) {
-        return res.status(404).json({ message: 'Favorite not found' });
-      }
-  
-      await favorite.destroy();
-  
-      res.status(200).json({ message: 'Favorite deleted successfully' });
-    } catch (error) {
-      res.status(500).json({ error: error.message });
+  try {
+    const favorite = await Favorite.findByPk(id, {
+      include: [{
+        model: Recipe,
+        as: 'recipes',
+        where: { id: id_recipe },
+      }],
+    });
+
+    if (!favorite) {
+      return res.status(404).json({ message: 'Favorite not found' });
     }
-  };
-  
-  
+
+    res.status(200).json(favorite);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+// menghapus favorite berdasarkan ID
+const deleteFavorite = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const favorite = await Favorite.findByPk(id);
+
+    if (!favorite) {
+      return res.status(404).json({ message: 'Favorite not found' });
+    }
+
+    await favorite.destroy();
+
+    res.status(200).json({ message: 'Favorite deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
 module.exports = {
   addFavorite,
