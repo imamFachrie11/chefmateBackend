@@ -20,6 +20,7 @@ app.use("/recipe", recipeRouter);
 app.use("/reaksi", reaksiRouter);
 app.use("/home", homeRouter);
 app.use("/cooksnap", cooksnapRouter);
+app.use("/favorite", favoriteRouter);
 
 app.listen(process.env.SERVER_PORT || 3000, () => {
   console.log("Server Running");
