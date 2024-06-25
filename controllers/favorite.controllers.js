@@ -18,6 +18,32 @@ const addFavorite = async (req, res) => {
   }
 };
 
+
+//mengambil favorite berdasarkan ID dan ID resep
+const getFavoriteByIdAndRecipeId = async (req, res) => {
+    const { id, recipeId } = req.params;
+  
+    try {
+      const favorite = await Favorite.findByPk(id, {
+        include: [{
+          model: Recipe,
+          as: 'recipes',
+          where: { id: recipeId },
+        }],
+      });
+  
+      if (!favorite) {
+        return res.status(404).json({ message: 'Favorite not found' });
+      }
+  
+      res.status(200).json(favorite);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+  
+
 module.exports = {
   addFavorite,
+  getFavoriteByIdAndRecipeId,
 };
