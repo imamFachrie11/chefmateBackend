@@ -41,9 +41,30 @@ const getFavoriteByIdAndRecipeId = async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   };
+
+  // Controller untuk menghapus favorite berdasarkan ID
+const deleteFavorite = async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const favorite = await Favorite.findByPk(id);
+  
+      if (!favorite) {
+        return res.status(404).json({ message: 'Favorite not found' });
+      }
+  
+      await favorite.destroy();
+  
+      res.status(200).json({ message: 'Favorite deleted successfully' });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+  
   
 
 module.exports = {
   addFavorite,
   getFavoriteByIdAndRecipeId,
+  deleteFavorite,
 };
