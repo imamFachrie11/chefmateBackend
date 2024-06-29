@@ -101,7 +101,7 @@ const deleteCooksnap = async (req, res, next) => {
     });
   }
 
-  await cooksnapModel.destroy({ where: { id: id_cooksnap } });
+  await existingCooksnap.destroy();
 
   return res.send({
     message: "Data has been delete",
