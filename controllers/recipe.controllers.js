@@ -1,5 +1,30 @@
 const { recipe: recipeModel } = require("../models");
 
+const createRecipe = async (req, res) => {
+  try {
+    const { judul, porsi, durasi, bahan } = req.body;
+    const recipe = new Recipe({ judul, porsi, durasi, bahan });
+    await recipe.save();
+    res.status(201).json({ message: "Recipe created successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error creating recipe" });
+  }
+};
+
+const getRecipes = async (req, res) => {
+  try {
+    const recipes = await recipeModel.findAndCountAll({
+      limit: 10,
+      offset: 1,
+    });
+    return res.status(200).json({ recipes });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching recipes" });
+  }
+};
+
 const index = async (req, res, next) => {
   const { id_recipe } = req.params;
 
@@ -131,4 +156,6 @@ const update = async (req, res, next) => {
 module.exports = {
   index,
   update,
+  createRecipe,
+  getRecipes,
 };

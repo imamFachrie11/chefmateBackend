@@ -40,10 +40,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_favorite",
         as: "favorites",
       });
-      recipe.belongsTo(models.kategori, {
-        foreignKey: "id_kategori",
-        as: "kategoris",
-      })
+      // recipe.belongsTo(models.kategori, {
+      //   foreignKey: "id_kategori",
+      //   as: "kategoris",
+      // })
     }
   }
   recipe.init(
