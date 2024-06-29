@@ -85,8 +85,33 @@ const update = async (req, res, next) => {
   });
 };
 
+const deleteCooksnap = async (req, res, next) => {
+  const { id_cooksnap } = req.params;
+  const userId = req.user.id;
+  console.log(userId);
+
+  const existingCooksnap = await cooksnapModel.findByPk(id_cooksnap);
+  if (!existingCooksnap) {
+    return res.status(404).json({ message: "Cooksnap not found" });
+  }
+
+  if (existingCooksnap.id_user != userId) {
+    return res.status(403).json({
+      message: "Forbidden: you do not have prermission to delete this cooksnap",
+    });
+  }
+
+  await cooksnapModel.destroy({ where: { id: id_cooksnap } });
+
+  return res.send({
+    message: "Data has been delete",
+    data: null,
+  });
+};
+
 module.exports = {
   index,
   create,
   update,
+  deleteCooksnap,
 };
