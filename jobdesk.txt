@@ -4,7 +4,7 @@ controllers & routes => imam fachrie, sadam, candra, gusti, jody, rafi, rizki fa
 
 
 // 1 create recipe rizki fachrizal.
-// 2 update recipe sadam,
+// 2 update recipe sadam, done
 // 3 delete recipe jody,
 // 4 detail recipe by id recipe gusti,
 // 5 read recipe limit 10 candra,
@@ -17,7 +17,7 @@ controllers & routes => imam fachrie, sadam, candra, gusti, jody, rafi, rizki fa
 
 // +komentar controller
 
-// 9 Create komentar gusti,
+// 9 Create komentar gusti, done
 // 10 Read komentar imam fachrie,
 // 11 delete komentar optional jody,
 
