@@ -34,19 +34,12 @@ module.exports = {
           key: "id",
         },
       },
-      id_favorite: {
+      id_kategori: {
         type: Sequelize.INTEGER,
         references: {
-          model: "favorites",
+          model: "kategoris",
           key: "id",
-        }, 
-        id_kategori: {
-          type: Sequelize.INTEGER,
-          references: {
-            model: "kategoris",
-            key: "id",
-          },
-        }
+        },
       },
       created_at: {
         allowNull: false,

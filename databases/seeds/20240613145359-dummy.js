@@ -10,6 +10,7 @@ const {
   reaksi,
   favorite,
   cooksnap,
+  kategoris,
 } = require("../../models");
 
 /** @type {import('sequelize-cli').Migration} */
@@ -33,6 +34,7 @@ module.exports = {
       await queryInterface.bulkDelete('jenis_makanans', null, {});
       await queryInterface.bulkDelete('recipes', null, {});
       await queryInterface.bulkDelete('users', null, {});
+      await queryInterface.bulkDelete('kategoris', null, {});
 
       // Menambahkan data dummy
       await queryInterface.bulkInsert("users", [
@@ -65,7 +67,7 @@ module.exports = {
           porsi: 2,
           durasi: 30,
           id_user: 2,
-          id_favorite: 1,
+          id_kategori: 1,
         },
         { id: 2, judul: "judul 2", foto_recipe: "foto 2", porsi: 2, durasi: 2 },
       ]);
@@ -121,7 +123,7 @@ module.exports = {
       await queryInterface.bulkInsert("reaksis", [
         { id: 1, nama_reaksi: "like", id_user: 1, id_recipe: 1 },
       ]);
-      await queryInterface.bulkInsert("favorites", [{ id: 1, id_user: 1 }
+      await queryInterface.bulkInsert("favorites", [{ id: 1, id_user: 1, id_recipe: 1 }
       ]);
 
       await queryInterface.bulkInsert("cooksnaps", [
@@ -140,14 +142,12 @@ module.exports = {
           nama_kategori: "sarapan",
           nama_foto_kategori: "bubur ayam pak haji mamat",
           foto_kategori_url: "foto bubur.jpg",
-          id_recipe: 1,
         },
         {
           id: 2,
           nama_kategori: "kue pukis antoni",
           nama_foto_kategori: "kue pukis by ibu jamiah",
           foto_kategori_url: "foto pukis halal.jpg",
-          id_recipe: 1,
         }
       ]);
 

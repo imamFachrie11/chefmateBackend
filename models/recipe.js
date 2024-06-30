@@ -36,14 +36,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_recipe",
         as: "reaksis",
       });
-      recipe.belongsTo(models.favorite, {
-        foreignKey: "id_favorite",
-        as: "favorites",
+      recipe.belongsTo(models.kategori, {
+        foreignKey: "id_kategori",
+        as: "kategoris",
       });
-      // recipe.belongsTo(models.kategori, {
-      //   foreignKey: "id_kategori",
-      //   as: "kategoris",
-      // })
     }
   }
   recipe.init(
@@ -53,7 +49,8 @@ module.exports = (sequelize, DataTypes) => {
       porsi: DataTypes.INTEGER,
       durasi: DataTypes.INTEGER,
       id_user: DataTypes.INTEGER,
-      id_favorite: DataTypes.INTEGER,
+      id_kategori: DataTypes.INTEGER,
+      // id_favorite: DataTypes.INTEGER,
     },
     {
       sequelize,

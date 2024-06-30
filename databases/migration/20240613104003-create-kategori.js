@@ -21,13 +21,6 @@ module.exports = {
       foto_kategori_url: {
         type: Sequelize.STRING
       },
-      id_recipe: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "recipes",
-          key: "id",
-        },
-      },
       created_at: {
         allowNull: false,
         defaultValue:Sequelize.fn("NOW"),

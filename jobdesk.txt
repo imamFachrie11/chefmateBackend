@@ -26,3 +26,8 @@ controllers & routes => imam fachrie, sadam, candra, gusti, jody, rafi, rizki fa
 
 // optional , dikerjakan setelah be selesai
 // produk dihalaman home mengambil dari bahan/jenis makanan + update database dengan gambar
+
+
+//benerin id di dalam create databases, relasinya dan melengkapi file seednya
+//controller langkah langkah dan bahan belum dibuat
+//

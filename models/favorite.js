@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         as: "users",
       });
       favorite.hasMany(models.recipe, {
-        foreignKey: "id_favorite",
+        foreignKey: "id_recipe",
         as: "recipes",
       });
     }
@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   favorite.init(
     {
       id_user: DataTypes.STRING,
+      id_recipe: DataTypes.STRING,
     },
     {
       sequelize,

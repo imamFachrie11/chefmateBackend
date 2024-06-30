@@ -16,6 +16,13 @@ module.exports = {
           key: "id",
         },
       },
+      id_recipe: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "recipes",
+          key: "id",
+        },
+      },
       created_at: {
         allowNull: false,
         defaultValue: Sequelize.fn("NOW"),

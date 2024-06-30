@@ -37,7 +37,7 @@ const index = async (req, res, next) => {
       "porsi",
       "durasi",
       "id_user",
-      "id_favorite",
+      "id_kategori"
     ],
 
     include: [

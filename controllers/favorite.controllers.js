@@ -19,7 +19,7 @@ const addFavorite = async (req, res) => {
 };
 
 // mengambil favorite berdasarkan ID dan ID resep
-const getFavoriteByIdAndRecipeId = async (req, res) => {
+const getFavoriteByIdAndRecipeId = async (req, res) => {      
   const { id, id_recipe } = req.params;
 
   try {
