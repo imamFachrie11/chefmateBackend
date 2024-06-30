@@ -64,12 +64,23 @@ module.exports = {
           id: 1,
           judul: "Siyao Kai / Ayam Kecap ala Hongkong",
           foto_recipe: "ayamhongkong.jpg",
+          foto_recipe_url: "image.jpg",
           porsi: 2,
           durasi: 30,
           id_user: 2,
-          id_kategori: 1,
+          id_kategori: 1
         },
-        { id: 2, judul: "judul 2", foto_recipe: "foto 2", porsi: 2, durasi: 2 },
+        { 
+          id: 2, 
+          judul: "ayam goreng kak ros mantapp", 
+          foto_recipe: "foto ayamm by kak ros",
+          foto_recipe_url: "image poto ayam.jpg", 
+          porsi: 2, 
+          durasi: 2,
+          id_user: 1,
+          id_kategori: 2
+
+        },
       ]);
         // Masukkan data lainnya jika diperlukan
 

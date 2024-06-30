@@ -12,15 +12,15 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_user",
         as: "recipes",
       });
-      user.hasMany(models.cooksnap, {
+      user.belongsTo(models.cooksnap, {
         foreignKey: "id_user",
         as: "cooksnaps",
       });
-      user.hasMany(models.komentar, {
+      user.belongsTo(models.komentar, {
         foreignKey: "id_user",
         as: "komentars",
       });
-      user.hasMany(models.reaksi, {
+      user.belongsTo(models.reaksi, {
         foreignKey: "id_user",
         as: "reaksis",
       });
