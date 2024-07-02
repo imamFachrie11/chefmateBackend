@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
         through: models.favorite,
         foreignKey: "id_recipe",
         otherKey: "id_user",
-        as: "recipesusers",
+        as: "recipesusers", //alias
       });
     }
   }
