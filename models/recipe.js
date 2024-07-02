@@ -40,6 +40,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_kategori",
         as: "kategoris",
       });
+      recipe.belongsToMany(models.user, {
+        through: models.favorite,
+        foreignKey: "id_recipe",
+        otherKey: "id_user",
+        as: "recipesusers",
+      });
     }
   }
   recipe.init(
