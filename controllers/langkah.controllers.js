@@ -50,7 +50,7 @@ const update = async (req, res, next) => {
 
   const existingRecipe = await recipeModel.findByPk(existingLangkah.id_recipe);
   if (existingRecipe.id_user != userId) {
-    return res.status(404).json({
+    return res.status(403).json({
       message: "Forbidden: you do not have permission to update this langkah",
     });
   }
@@ -76,7 +76,7 @@ const deleteLangkah = async (req, res, next) => {
 
   const existingRecipe = await recipeModel.findByPk(existingLangkah.id_recipe);
   if (existingRecipe.id_user != userId) {
-    return res.status(404).json({
+    return res.status(403).json({
       message: "Forbidden: you do not have prermission to delete this langkah",
     });
   }
