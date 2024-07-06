@@ -21,7 +21,9 @@ const getRecipes = async (req, res) => {
     return res.status(200).json({ recipes });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error fetching recipes" });
+    res
+      .status(500)
+      .json({ message: "Error fetching data", error: error.message });
   }
 };
 
@@ -37,7 +39,7 @@ const index = async (req, res, next) => {
       "porsi",
       "durasi",
       "id_user",
-      "id_kategori"
+      "id_kategori",
     ],
 
     include: [
