@@ -11,6 +11,7 @@ const cooksnapRouter = require("./routes/cooksnap.route");
 const favoriteRouter = require("./routes/favorite.route");
 const komentarRouter = require("./routes/komentar.route");
 const langkahRouter = require("./routes/langkah.route");
+const bahanRouter = require("./routes/bahan.route");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,6 +23,7 @@ app.use("/cooksnap", cooksnapRouter);
 app.use("/favorite", favoriteRouter);
 app.use("/komentar", komentarRouter);
 app.use("/langkah", langkahRouter);
+app.use("/bahan", bahanRouter);
 
 app.listen(process.env.SERVER_PORT || 3000, () => {
   console.log("Server Running");
