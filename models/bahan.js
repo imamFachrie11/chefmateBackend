@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       bahan.belongsTo(models.recipe, {
         foreignKey: "id_recipe",
         as: "recipes",
+        onDelete : "CASCADE",
       });
     }
   }

@@ -155,9 +155,34 @@ const update = async (req, res, next) => {
   });
 };
 
+const deleteRecipe = async (req, res) => {
+
+  try {
+
+    const { id_recipe } = req.body;
+
+    await recipeModel.destroy({
+      where: {
+        id: id_recipe,
+      },
+    });
+
+    return res.status(200).send({
+      message: "delete recipe suskes",
+    });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: error });
+  }
+};
+
+
 module.exports = {
   index,
   update,
   createRecipe,
   getRecipes,
+  deleteRecipe
 };

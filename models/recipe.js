@@ -11,34 +11,44 @@ module.exports = (sequelize, DataTypes) => {
       recipe.hasMany(models.cooksnap, {
         foreignKey: "id_recipe",
         as: "cooksnaps",
+        // onDelete : "CASCADE",
       });
       recipe.belongsTo(models.user, {
         foreignKey: "id_user",
         as: "users",
+
       });
       recipe.hasMany(models.jenis_makanan, {
         foreignKey: "id_recipe",
         as: "jenis_makanans",
+
       });
       recipe.hasMany(models.bahan, {
         foreignKey: "id_recipe",
         as: "bahans",
+        // onDelete : "CASCADE",
+
       });
       recipe.hasMany(models.langkah, {
         foreignKey: "id_recipe",
         as: "langkahs",
+
       });
       recipe.hasMany(models.komentar, {
         foreignKey: "id_recipe",
         as: "komentars",
+
       });
       recipe.hasMany(models.reaksi, {
         foreignKey: "id_recipe",
         as: "reaksis",
+
       });
       recipe.belongsTo(models.kategori, {
         foreignKey: "id_kategori",
         as: "kategoris",
+        // onDelete : "CASCADE",
+
       });
       recipe.belongsToMany(models.user, {
         through: models.favorite,
@@ -62,7 +72,7 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: "recipe",
       underscored: true,
-    }
+    },
   );
   return recipe;
 };
