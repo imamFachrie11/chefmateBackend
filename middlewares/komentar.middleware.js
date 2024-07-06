@@ -7,11 +7,11 @@ const komentarCreatevalidation = (req, res, next) => {
     }
 
     if (!id_recipe) {
-      throw new Error(`id_user wajib di isi`);
+      throw new Error(`id_recipe wajib di isi`);
     }
 
     if (!deskripsi) {
-      throw new Error(`id_user wajib di isi`);
+      throw new Error(`deskripsi wajib di isi`);
     }
 
     next();
