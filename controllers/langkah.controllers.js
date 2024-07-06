@@ -60,7 +60,7 @@ const update = async (req, res, next) => {
   });
 
   return res.send({
-    message: "Data has been updated",
+    message: "Langkah berhasil di hapus",
     data: updatedLangkah,
   });
 };
@@ -84,7 +84,7 @@ const deleteLangkah = async (req, res, next) => {
   await existingLangkah.destroy();
 
   return res.send({
-    message: "Data has been delete",
+    message: "Data berhasil dihapus",
     data: null,
   });
 };
