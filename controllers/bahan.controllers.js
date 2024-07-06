@@ -77,7 +77,7 @@ const deleteBahan = async (req, res, next) => {
   const existingRecipe = await recipeModel.findByPk(existingBahan.id_recipe);
   if (existingRecipe.id_user != userId) {
     return res.status(403).json({
-      message: "Forbidden: you do not have prermission to delete this langkah",
+      message: "Forbidden: you do not have prermission to delete this bahan",
     });
   }
 
