@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "id_recipe",
         as: "recipes",
       });
+      komentar.belongsTo(models.user, {
+        foreignKey: "id_user",
+        as: "users",
+      });
+      
     }
   }
   komentar.init(
