@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       recipe.hasMany(models.cooksnap, {
         foreignKey: "id_recipe",
         as: "cooksnaps",
-        // onDelete : "CASCADE",
       });
       recipe.belongsTo(models.user, {
         foreignKey: "id_user",
@@ -26,8 +25,6 @@ module.exports = (sequelize, DataTypes) => {
       recipe.hasMany(models.bahan, {
         foreignKey: "id_recipe",
         as: "bahans",
-        // onDelete : "CASCADE",
-
       });
       recipe.hasMany(models.langkah, {
         foreignKey: "id_recipe",
@@ -47,7 +44,6 @@ module.exports = (sequelize, DataTypes) => {
       recipe.belongsTo(models.kategori, {
         foreignKey: "id_kategori",
         as: "kategoris",
-        // onDelete : "CASCADE",
 
       });
       recipe.belongsToMany(models.user, {

@@ -1,4 +1,16 @@
-const { recipe: recipeModel } = require("../models");
+const {
+  recipe: recipeModel,
+  bahan: bahanModel,
+  cooksnap: cookSnapModel,
+  favorite: favoriteModel,
+  jenis_makanan: jenis_makanansModel,
+  komentar: komentarModel,
+  langkah : langkahModel,
+  reaksi : reaksiModel
+} = require("../models");
+// const { bahan: bahanModel  } = require("../models");
+// const { cooksnap : cookSnapModel } = require("../models");
+// const { favorite : favoriteModel } = require("../models");
 
 const createRecipe = async (req, res) => {
   try {
@@ -156,10 +168,50 @@ const update = async (req, res, next) => {
 };
 
 const deleteRecipe = async (req, res) => {
-
   try {
-
     const { id_recipe } = req.body;
+
+    await reaksiModel.destroy({
+      where: {
+        id_recipe: id_recipe,
+      },
+    });
+
+    await langkahModel.destroy({
+      where: {
+        id_recipe: id_recipe,
+      },
+    });
+
+    await komentarModel.destroy({
+      where: {
+        id_recipe: id_recipe,
+      },
+    });
+
+    await jenis_makanansModel.destroy({
+      where: {
+        id_recipe: id_recipe,
+      },
+    });
+
+    await favoriteModel.destroy({
+      where: {
+        id_recipe: id_recipe,
+      },
+    });
+
+    await cookSnapModel.destroy({
+      where: {
+        id_recipe: id_recipe,
+      },
+    });
+
+    await bahanModel.destroy({
+      where: {
+        id_recipe: id_recipe,
+      },
+    });
 
     await recipeModel.destroy({
       where: {
@@ -168,21 +220,18 @@ const deleteRecipe = async (req, res) => {
     });
 
     return res.status(200).send({
-      message: "delete recipe suskes",
+      message: "delete recipe sukses",
     });
   } catch (error) {
     console.error(error);
-    res
-      .status(500)
-      .json({ message: error });
+    res.status(500).json({ message: "internal error", error: error.message });
   }
 };
-
 
 module.exports = {
   index,
   update,
   createRecipe,
   getRecipes,
-  deleteRecipe
+  deleteRecipe,
 };
