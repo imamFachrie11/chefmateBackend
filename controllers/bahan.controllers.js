@@ -1,27 +1,97 @@
 const { bahan: bahanModel } = require("../models");
 
-const createBahan = async (req, res, next) => {
-  try {
-    const { id_user, id_recipe, deskripsi } = req.body;
-    const create_at = new Date();
+const index = async (req, res, next) => {
+  const { id_recipe } = req.params;
 
-    await bahanModel.create({
-      deskripsi: deskripsi,
-      id_user: id_user,
+  const bahan = await bahanModel.findAll({
+    where: id_recipe ? { id_recipe } : {},
+    attributes: ["id", "nama_bahan", "id_recipe"],
+  });
+
+  return res.send({
+    message: "success",
+    data: bahan,
+  });
+};
+
+const create = async (req, res, next) => {
+  const { id_recipe } = req.params;
+  const { nama_bahan } = req.body;
+  //   const userId = req.user.id;
+
+  const existingRecipe = await recipeModel.findByPk(id_recipe);
+  if (!existingRecipe) {
+    return res.status(404).json({ message: "recipe not found" });
+  }
+
+  await bahanModel
+    .create({
+      nama_bahan,
       id_recipe: id_recipe,
-      create_at: create_at,
+    })
+    .then((dataResponse) => {
+      return res.status(201).send({
+        message: "bahan berhasil di tambahkan",
+        data: dataResponse,
+      });
     });
+};
 
-    return res.status(200).send({
-      message: "Create Bahan Sukses",
-    });
-  } catch (error) {
-    return res.status(500).send({
-      message: "Internal eror",
+const update = async (req, res, next) => {
+  const { id_bahan } = req.params;
+  const userId = req.user.id;
+
+  const { nama_bahan } = req.body;
+
+  const existingBahan = await bahanModel.findByPk(id_bahan);
+  if (!existingBahan) {
+    return res.status(404).json({ message: "Bahan not found" });
+  }
+
+  const existingRecipe = await recipeModel.findByPk(existingBahan.id_recipe);
+  if (existingBahan.id_user != userId) {
+    return res.status(403).json({
+      message: "Forbidden: you do not have permission to update this bahan",
     });
   }
+
+  const updatedBahan = await existingBahan.update({
+    nama_bahan,
+  });
+
+  return res.send({
+    message: "Data has been updated",
+    data: updatedBahan,
+  });
+};
+
+const deleteBahan = async (req, res, next) => {
+  const { id_bahan } = req.params;
+  const userId = req.user.id;
+
+  const existingBahan = await BahanModel.findByPk(id_bahan);
+  if (!existingBahan) {
+    return res.status(404).json({ message: "Bahan not found" });
+  }
+
+  const existingRecipe = await recipeModel.findByPk(existingBahan.id_recipe);
+  if (existingRecipe.id_user != userId) {
+    return res.status(403).json({
+      message: "Forbidden: you do not have prermission to delete this langkah",
+    });
+  }
+
+  await existingBahan.destroy();
+
+  return res.send({
+    message: "Data has been delete",
+    data: null,
+  });
 };
 
 module.exports = {
-  createBahan,
+  index,
+  create,
+  update,
+  deleteBahan,
 };
