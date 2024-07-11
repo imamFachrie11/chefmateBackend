@@ -46,7 +46,7 @@ module.exports = {
             "$2a$12$X5.8wO1LDwL3kFkuywO0x.S5F/BEPe1OKapLY5NtEH0J1RfmAMXJG", //sadam
           deskripsi_user:
             "awalnya saya mencoba coba untuk memasak, lama-lama ketagihan ye kan, karena saya orang nya suka lupa apa yang saya buat jadinya saya coba deh nulis resep saya. semoga menikmati",
-          gambar: "gambar/user.jpg",
+          gambar: "sadam.jpg",
         },
         {
           id: 2,
@@ -95,7 +95,7 @@ module.exports = {
           id: 1,
           judul: "Siyao Kai / Ayam Kecap ala Hongkong",
           foto_recipe: "ayamhongkong.jpg",
-          foto_recipe_url: "image_ayam_kecap.jpg",
+          foto_recipe_url: "ayam-hongkong.jpg",
           porsi: 2,
           durasi: 30,
           deskripsi_resep:
@@ -299,230 +299,213 @@ module.exports = {
       await queryInterface.bulkInsert("langkahs", [
         //langkah langkah 1
         {
-          id: 1,
           nama_langkah: "Aduk semua bahan saus jadi satu sampai larut.",
           id_recipe: 1,
+          foto_langkah: "ayam-hongkong1.jpg",
         },
         {
-          id: 2,
           nama_langkah:
             "Iris tipis bawang putih, bawang merah dan jahe. Untuk daun bawang potong kasar saja.",
           id_recipe: 1,
+          foto_langkah: "ayam-hongkong2.jpg",
         },
         {
-          id: 3,
           nama_langkah:
             "Letakkan ayam yang sudah di cuci bersih kedalam wajan. Taburi diatasnya dengan bawang putih, bawang merah dan daun bawang.",
           id_recipe: 1,
+          foto_langkah: "ayam-hongkong3.jpg",
         },
         {
-          id: 4,
           nama_langkah:
             "Tuang larutan saus merata diatas ayam. Nyalakan api sedang cenderung kecil. Tutup wajannya.",
           id_recipe: 1,
+          foto_langkah: "ayam-hongkong4.jpg",
         },
         {
-          id: 5,
           nama_langkah:
             "Masak sambil dibolak balik agar bumbu meresap dan warnanya cantik. Sampai sausnya menyusut.",
           id_recipe: 1,
+          foto_langkah: "ayam-hongkong5.jpg",
+        },
+        {
+          nama_langkah: "Angkat ayam dan potong-potong",
+          id_recipe: 1,
+          foto_langkah: "ayam-hongkong6.jpg",
+        },
+        {
+          nama_langkah:
+            "Haluskan semua bahan sambal menggunakan blender. Pindahkan kemangkok saus.",
+          id_recipe: 1,
+          foto_langkah: "ayam-hongkong7.jpg",
+        },
+        {
+          nama_langkah: "Sajikan hangat bersama sambalnya.",
+          id_recipe: 1,
+          foto_langkah: "ayam-hongkong8.jpg",
         },
         //langkah langkah 2
         {
-          id: 6,
           nama_langkah:
             "Cuci bersih potongan ayam, kemudian lumuri dengan air jeruk nipis atau lemon dan 2 sendok teh garam. Diamkan selama 15 menit, lalu bilas hingga bersih.",
           id_recipe: 2,
         },
         {
-          id: 7,
           nama_langkah:
             "Campurkan semua bahan marinasi dalam wadah besar. Masukkan potongan ayam dan aduk hingga semua bagian ayam terlapisi bumbu marinasi. Diamkan selama minimal 30 menit, lebih baik jika didiamkan semalaman di dalam lemari es.",
           id_recipe: 2,
         },
         {
-          id: 8,
           nama_langkah:
             "Jika ingin ayam yang lebih renyah, campurkan tepung terigu, tepung maizena, baking powder, garam, merica bubuk, dan paprika bubuk dalam wadah. Gulingkan potongan ayam yang telah dimarinasi ke dalam campuran tepung hingga terlapisi merata.",
           id_recipe: 2,
         },
         {
-          id: 9,
           nama_langkah:
             "Panaskan minyak dalam wajan besar dengan api sedang-tinggi. Pastikan minyak cukup banyak agar ayam bisa terendam saat digoreng.",
           id_recipe: 2,
         },
         {
-          id: 10,
           nama_langkah:
             "Goreng ayam dalam minyak panas hingga berwarna kecokelatan dan matang sempurna. Jangan terlalu banyak memasukkan ayam dalam sekali goreng agar minyak tetap panas dan ayam tidak terlalu berminyak.",
           id_recipe: 2,
         },
         {
-          id: 11,
           nama_langkah:
             "Angkat dan tiriskan ayam goreng di atas kertas minyak atau tisu dapur untuk menghilangkan kelebihan minyak.",
           id_recipe: 2,
         },
         {
-          id: 12,
           nama_langkah:
             "Sajikan ayam goreng dengan nasi putih hangat, sambal, dan lalapan sesuai selera.",
           id_recipe: 2,
         },
         // langkah langkah 3
         {
-          id: 13,
           nama_langkah:
             "Rebus ayam kampung dalam 2 liter air bersama serai, daun jeruk, daun salam, lengkuas, bawang putih, merica butir, dan garam.",
           id_recipe: 3,
         },
         {
-          id: 14,
           nama_langkah:
             "Masak hingga ayam empuk dan keluar kaldu yang kaya rasa.",
           id_recipe: 3,
         },
         {
-          id: 15,
           nama_langkah:
             "Angkat ayam dan sisihkan untuk disuwir-suwir. Saring kaldu dan gunakan untuk memasak bubur.",
           id_recipe: 3,
         },
         {
-          id: 16,
           nama_langkah:
             "Rebus beras bersama 1,5 liter air kaldu ayam, daun salam, daun pandan, dan garam.",
           id_recipe: 3,
         },
         {
-          id: 17,
           nama_langkah:
             "Masak dengan api kecil sambil diaduk-aduk hingga beras menjadi bubur yang kental dan lembut. Jika air kaldu habis tapi bubur belum cukup kental, tambahkan air panas sedikit demi sedikit hingga mencapai konsistensi yang diinginkan.",
           id_recipe: 3,
         },
         {
-          id: 18,
           nama_langkah: "Tuang bubur ke dalam mangkuk saji.",
           id_recipe: 3,
         },
         {
-          id: 19,
           nama_langkah:
             "Taburi dengan ayam suwir, kacang kedelai goreng, bawang goreng, seledri, dan daun bawang.",
           id_recipe: 3,
         },
         {
-          id: 20,
           nama_langkah:
             "Tambahkan kerupuk, sambal, dan kecap manis sesuai selera.",
           id_recipe: 3,
         },
         //langkah langkah 4
         {
-          id: 21,
           nama_langkah:
             "Lumuri lele yang sudah dibersihkan dengan air jeruk nipis dan garam. Diamkan selama 15 menit untuk mengurangi bau amis.",
           id_recipe: 4,
         },
         {
-          id: 22,
           nama_langkah:
             "Haluskan bawang putih, kunyit, ketumbar, dan garam. Lumuri lele dengan bumbu halus ini hingga merata. Diamkan selama minimal 30 menit agar bumbu meresap.",
           id_recipe: 4,
         },
         {
-          id: 23,
           nama_langkah:
             "Panaskan minyak dalam jumlah yang cukup banyak di wajan. Goreng lele hingga berwarna kecokelatan dan matang sempurna. Angkat dan tiriskan.",
           id_recipe: 4,
         },
         {
-          id: 24,
           nama_langkah:
             "Goreng cabai rawit, cabai merah, bawang merah, bawang putih, dan tomat hingga layu.",
           id_recipe: 4,
         },
         {
-          id: 25,
           nama_langkah:
             "Haluskan bahan yang telah digoreng bersama dengan terasi, gula merah, dan garam. Anda bisa menggunakan cobek atau blender.",
           id_recipe: 4,
         },
         {
-          id: 26,
           nama_langkah:
             "Tambahkan air jeruk limau ke dalam sambal dan aduk rata.",
           id_recipe: 4,
         },
         {
-          id: 27,
           nama_langkah:
             "Sajikan lele goreng dengan sambal pecel di atas piring.",
           id_recipe: 4,
         },
         //langkah langkah 5
         {
-          id: 28,
           nama_langkah:
             "Potong-potong daging sapi sesuai selera, kemudian sisihkan.",
           id_recipe: 5,
         },
         {
-          id: 29,
           nama_langkah:
             "Haluskan semua bahan bumbu halus menggunakan blender atau cobek hingga benar-benar halus.",
           id_recipe: 5,
         },
         {
-          id: 30,
           nama_langkah:
             "Panaskan minyak dalam wajan besar. Tumis bumbu halus bersama serai, daun salam, dan daun jeruk hingga harum dan matang.",
           id_recipe: 5,
         },
         {
-          id: 31,
           nama_langkah:
             "Masukkan potongan daging ke dalam wajan, aduk hingga daging berubah warna.",
           id_recipe: 5,
         },
         {
-          id: 32,
           nama_langkah: "Tambahkan kayu manis dan cengkeh, aduk rata.",
           id_recipe: 5,
         },
         {
-          id: 33,
           nama_langkah:
             "Masukkan kecap manis dan kecap asin, aduk hingga rata.",
           id_recipe: 5,
         },
         {
-          id: 34,
           nama_langkah:
             "Tuangkan air ke dalam wajan, aduk rata, dan masak hingga daging empuk. Tutup wajan dan masak dengan api kecil agar daging meresap dengan baik.",
           id_recipe: 5,
         },
         {
-          id: 35,
           nama_langkah:
             "Setelah daging mulai empuk, tambahkan santan kental dan air asam jawa, aduk rata.",
           id_recipe: 5,
         },
         {
-          id: 36,
           nama_langkah:
             "Tambahkan garam dan gula merah secukupnya, sesuai selera.",
           id_recipe: 5,
         },
         {
-          id: 37,
           nama_langkah:
             "Masak hingga kuah menyusut dan mengental, sambil sesekali diaduk agar tidak gosong. Pastikan daging benar-benar empuk dan bumbu meresap sempurna.",
           id_recipe: 5,
         },
         {
-          id: 38,
           nama_langkah:
             "Angkat malbi dari wajan dan sajikan hangat dengan nasi putih dan pelengkap seperti acar atau sambal.",
           id_recipe: 5,

@@ -48,6 +48,7 @@ const index = async (req, res, next) => {
       "id",
       "judul",
       "foto_recipe",
+      "foto_recipe_url",
       "porsi",
       "durasi",
       "deskripsi_resep",
@@ -67,7 +68,7 @@ const index = async (req, res, next) => {
       },
       {
         association: "langkahs",
-        attributes: ["id", "nama_langkah"],
+        attributes: ["id", "nama_langkah", "foto_langkah"],
       },
       {
         association: "komentars",
