@@ -15,12 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       recipe.belongsTo(models.user, {
         foreignKey: "id_user",
         as: "users",
-
       });
       recipe.hasMany(models.jenis_makanan, {
         foreignKey: "id_recipe",
         as: "jenis_makanans",
-
       });
       recipe.hasMany(models.bahan, {
         foreignKey: "id_recipe",
@@ -29,22 +27,18 @@ module.exports = (sequelize, DataTypes) => {
       recipe.hasMany(models.langkah, {
         foreignKey: "id_recipe",
         as: "langkahs",
-
       });
       recipe.hasMany(models.komentar, {
         foreignKey: "id_recipe",
         as: "komentars",
-
       });
       recipe.hasMany(models.reaksi, {
         foreignKey: "id_recipe",
         as: "reaksis",
-
       });
       recipe.belongsTo(models.kategori, {
         foreignKey: "id_kategori",
         as: "kategoris",
-
       });
       recipe.belongsToMany(models.user, {
         through: models.favorite,
@@ -60,6 +54,7 @@ module.exports = (sequelize, DataTypes) => {
       foto_recipe: DataTypes.STRING,
       porsi: DataTypes.INTEGER,
       durasi: DataTypes.INTEGER,
+      deskripsi_resep: DataTypes.TEXT,
       id_user: DataTypes.INTEGER,
       id_kategori: DataTypes.INTEGER,
       // id_favorite: DataTypes.INTEGER,
@@ -68,7 +63,7 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: "recipe",
       underscored: true,
-    },
+    }
   );
   return recipe;
 };

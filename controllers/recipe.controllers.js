@@ -5,8 +5,8 @@ const {
   favorite: favoriteModel,
   jenis_makanan: jenis_makanansModel,
   komentar: komentarModel,
-  langkah : langkahModel,
-  reaksi : reaksiModel
+  langkah: langkahModel,
+  reaksi: reaksiModel,
 } = require("../models");
 // const { bahan: bahanModel  } = require("../models");
 // const { cooksnap : cookSnapModel } = require("../models");
@@ -50,6 +50,8 @@ const index = async (req, res, next) => {
       "foto_recipe",
       "porsi",
       "durasi",
+      "deskripsi_resep",
+      "created_at",
       "id_user",
       "id_kategori",
     ],
