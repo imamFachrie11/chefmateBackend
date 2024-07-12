@@ -31,12 +31,6 @@ const index = async (req, res, next) => {
         ),
         "img_user_url",
       ],
-      [
-        cooksnapModel.sequelize.literal(
-          `(SELECT COUNT(*) FROM cooksnaps AS c WHERE c.id_recipe = cooksnap.id_recipe )`
-        ),
-        "total_cooksnaps",
-      ],
     ],
   });
 

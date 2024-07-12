@@ -8,7 +8,7 @@ const {
   update,
   createRecipe,
   getRecipes,
-  deleteRecipe
+  deleteRecipe,
 } = require("../controllers/recipe.controllers");
 
 router.get("/:id_recipe?", index);

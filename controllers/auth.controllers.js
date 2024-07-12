@@ -6,6 +6,17 @@ const { user: userModels } = require("../models");
 const register = async (req, res, next) => {
   const { name, email, password } = req.body;
 
+  const emailCheck = await userModels.findOne({
+    where: { email_user: email },
+    attributes: ["email_user"],
+  });
+  if (emailCheck) {
+    return res.status(400).send({
+      message: "Email already registered",
+      data: null,
+    });
+  }
+
   const passwordHash = await bcrypt.hash(password, 10);
   console.log("passwordHash", passwordHash);
   await userModels
@@ -42,10 +53,7 @@ const login = async (req, res, next) => {
       "name_user",
       "email_user",
       "password_user",
-      "deskripsi_user",
-      "gambar",
-      "created_at",
-      "updated_at",
+      "description_user",
     ],
   });
 

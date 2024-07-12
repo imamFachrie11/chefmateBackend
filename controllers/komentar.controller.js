@@ -2,16 +2,47 @@ const { komentar: komentarModel } = require("../models");
 
 const createKomentar = async (req, res, next) => {
   try {
-    const { id_user, id_recipe, deskripsi } = req.body;
+    const { deskripsi } = req.body;
+    const { id_recipe } = req.params;
+    const userId = req.user.id;
 
-    await komentarModel.create({
+    const newComment = await komentarModel.create({
       deskripsi: deskripsi,
-      id_user: id_user,
-      id_recipe: id_recipe,
+      id_user: userId,
+      id_recipe,
     });
 
-    return res.status(200).send({
-      message: "create komentar suskes",
+    const komentarWithUser = await komentarModel.findOne({
+      where: { id: newComment.id },
+      attributes: [
+        "id",
+        "id_recipe",
+        "deskripsi",
+        "created_at",
+        [
+          komentarModel.sequelize.literal(
+            `(SELECT name_user FROM users AS u WHERE u.id = komentar.id_user )`
+          ),
+          "name_user",
+        ],
+        [
+          komentarModel.sequelize.literal(
+            `(SELECT img FROM users AS u WHERE u.id = komentar.id_user )`
+          ),
+          "img_user",
+        ],
+        [
+          komentarModel.sequelize.literal(
+            `(SELECT img_url FROM users AS u WHERE u.id = komentar.id_user )`
+          ),
+          "img_user_url",
+        ],
+      ],
+    });
+
+    return res.status(201).send({
+      message: "Komentar berhasil ditambahkan",
+      data: komentarWithUser,
     });
   } catch (error) {
     return res.status(500).send({
@@ -74,16 +105,9 @@ const getKomentar = async (req, res, next) => {
           ),
           "img_user_url",
         ],
-        [
-          komentarModel.sequelize.literal(
-            `(SELECT COUNT(*) FROM komentars AS s WHERE s.id_recipe = komentar.id_recipe )`
-          ),
-          "total_komentars",
-        ],
       ],
 
       order: [["created_at", "ASC"]],
-      // attributes : ['id']
     });
 
     return res.status(200).send({

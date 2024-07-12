@@ -80,6 +80,7 @@ const getRecipes = async (req, res) => {
 };
 
 const index = async (req, res, next) => {
+  console.log(req.user);
   const { id_recipe } = req.params;
 
   const recipe = await recipeModel.findAll({
