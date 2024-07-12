@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       nama_langkah: DataTypes.TEXT,
       id_recipe: DataTypes.INTEGER,
-      foto_langkah: DataTypes.TEXT,
+      img: DataTypes.TEXT,
+      img_url: DataTypes.TEXT,
     },
     {
       sequelize,

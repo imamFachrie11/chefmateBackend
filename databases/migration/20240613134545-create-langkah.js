@@ -12,9 +12,8 @@ module.exports = {
       nama_langkah: {
         type: Sequelize.TEXT,
       },
-      foto_langkah: {
-        type: Sequelize.TEXT,
-      },
+      img: { type: Sequelize.TEXT },
+      img_url: { type: Sequelize.TEXT },
       id_recipe: {
         type: Sequelize.INTEGER,
         references: {

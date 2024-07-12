@@ -2,6 +2,7 @@ const path = require("path");
 require("dotenv").config({ path: path.join(__dirname, "../.env") });
 const express = require("express");
 const cors = require("cors");
+const fileUpload = require("express-fileupload");
 
 const app = express();
 app.use(cors());
@@ -17,6 +18,8 @@ const bahanRouter = require("./routes/bahan.route");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(fileUpload());
+app.use(express.static("public"));
 
 app.use("/auth", loginRouter);
 app.use("/recipe", recipeRouter);

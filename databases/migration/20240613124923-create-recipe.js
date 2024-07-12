@@ -25,7 +25,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       durasi: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       deskripsi_resep: {
         type: Sequelize.TEXT,

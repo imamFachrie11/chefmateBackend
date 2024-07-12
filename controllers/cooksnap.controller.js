@@ -8,8 +8,11 @@ const index = async (req, res, next) => {
     attributes: [
       "id",
       "name_cooksnap",
-      "gambar_cooksnap",
+      "img",
+      "img_url",
       "id_user",
+      "id_recipe",
+      "created_at",
       [
         cooksnapModel.sequelize.literal(
           `(SELECT name_user FROM users AS u WHERE u.id = cooksnap.id_user )`
@@ -18,9 +21,21 @@ const index = async (req, res, next) => {
       ],
       [
         cooksnapModel.sequelize.literal(
-          `(SELECT gambar FROM users AS u WHERE u.id = cooksnap.id_user )`
+          `(SELECT img FROM users AS u WHERE u.id = cooksnap.id_user )`
         ),
-        "foto_user",
+        "img_user",
+      ],
+      [
+        cooksnapModel.sequelize.literal(
+          `(SELECT img_url FROM users AS u WHERE u.id = cooksnap.id_user )`
+        ),
+        "img_user_url",
+      ],
+      [
+        cooksnapModel.sequelize.literal(
+          `(SELECT COUNT(*) FROM cooksnaps AS c WHERE c.id_recipe = cooksnap.id_recipe )`
+        ),
+        "total_cooksnaps",
       ],
     ],
   });

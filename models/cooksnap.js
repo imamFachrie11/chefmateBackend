@@ -21,9 +21,10 @@ module.exports = (sequelize, DataTypes) => {
   cooksnap.init(
     {
       name_cooksnap: DataTypes.STRING,
-      gambar_cooksnap: DataTypes.STRING,
       id_user: DataTypes.INTEGER,
       id_recipe: DataTypes.INTEGER,
+      img: DataTypes.TEXT,
+      img_url: DataTypes.TEXT,
     },
     {
       sequelize,

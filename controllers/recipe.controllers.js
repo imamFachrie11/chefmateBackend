@@ -1,3 +1,6 @@
+const path = require("path");
+const crypto = require("crypto");
+
 const {
   recipe: recipeModel,
   bahan: bahanModel,
@@ -14,10 +17,47 @@ const {
 
 const createRecipe = async (req, res) => {
   try {
-    const { judul, porsi, durasi, bahan } = req.body;
-    const recipe = new Recipe({ judul, porsi, durasi, bahan });
-    await recipe.save();
-    res.status(201).json({ message: "Recipe created successfully" });
+    const { judul, porsi, durasi, deskripsi_resep } = req.body;
+
+    const foto_recipe = req.files.foto_recipe;
+    console.log(foto_recipe, "files");
+
+    if (!foto_recipe) {
+      return res.status(404).json({ message: "file foto tidak boleh kosong" });
+    }
+
+    const ext = path.extname(foto_recipe.name);
+    console.log(ext, "ext");
+
+    const fileName = crypto.randomUUID() + ext;
+    console.log(fileName, "filename");
+
+    const linkPhoto = `/photos/${fileName}`;
+    console.log(linkPhoto, "link");
+
+    const allowedType = [".png", ".jpg", ".jpeg"];
+
+    //filter file type
+    if (!allowedType.includes(ext.toLowerCase())) {
+      return res.status(422).json({ msg: "type file not allowed" });
+    }
+
+    foto_recipe.mv(`./public/photos/${fileName}`, async (err) => {
+      if (err) return res.status(500).json({ msg: err.message });
+      try {
+        await recipeModel.create({
+          judul,
+          porsi,
+          durasi,
+          deskripsi_resep,
+          foto_recipe: fileName,
+          foto_recipe_url: linkPhoto,
+        });
+        return res.status(201).json({ msg: "Recipe created successfully" });
+      } catch (error) {
+        return res.status(500).json({ msg: error.message });
+      }
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error creating recipe" });
@@ -68,7 +108,7 @@ const index = async (req, res, next) => {
       },
       {
         association: "langkahs",
-        attributes: ["id", "nama_langkah", "foto_langkah"],
+        attributes: ["id", "nama_langkah", "img", "img_url"],
       },
       {
         association: "komentars",
@@ -83,7 +123,7 @@ const index = async (req, res, next) => {
           ],
           [
             recipeModel.sequelize.literal(
-              `(SELECT gambar FROM users AS u WHERE u.id = komentars.id_user )`
+              `(SELECT img FROM users AS u WHERE u.id = komentars.id_user )`
             ),
             "foto_user",
           ],
@@ -94,7 +134,8 @@ const index = async (req, res, next) => {
         attributes: [
           "id",
           "name_cooksnap",
-          "gambar_cooksnap",
+          "img",
+          "img_url",
           [
             recipeModel.sequelize.literal(
               `(SELECT name_user FROM users AS u WHERE u.id = cooksnaps.id_user )`
@@ -103,7 +144,7 @@ const index = async (req, res, next) => {
           ],
           [
             recipeModel.sequelize.literal(
-              `(SELECT gambar FROM users AS u WHERE u.id = cooksnaps.id_user )`
+              `(SELECT img FROM users AS u WHERE u.id = cooksnaps.id_user )`
             ),
             "foto_user",
           ],
@@ -124,7 +165,7 @@ const index = async (req, res, next) => {
       },
       {
         association: "users",
-        attributes: ["id", "name_user", "gambar", "deskripsi_user"],
+        attributes: ["id", "name_user", "description_user", "img", "img_url"],
       },
     ],
   });
