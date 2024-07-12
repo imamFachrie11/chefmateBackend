@@ -42,28 +42,46 @@ const deleteKomentar = async (req, res, next) => {
 
 const getKomentar = async (req, res, next) => {
   try {
-    console.log("getKomentar");
-    const { id_recipe } = req.body;
-    console.log(id_recipe);
+    const { id_recipe } = req.params;
+    const { limit } = req.query;
+    const limitKomentar = limit ? Number(limit) : undefined;
 
     const result = await komentarModel.findAll({
+      limit: limitKomentar,
       where: {
         id_recipe: id_recipe,
       },
       attributes: [
-        "id", 
+        "id",
         "id_recipe",
         "deskripsi",
         "created_at",
+        [
+          komentarModel.sequelize.literal(
+            `(SELECT name_user FROM users AS u WHERE u.id = komentar.id_user )`
+          ),
+          "name_user",
+        ],
+        [
+          komentarModel.sequelize.literal(
+            `(SELECT img FROM users AS u WHERE u.id = komentar.id_user )`
+          ),
+          "img_user",
+        ],
+        [
+          komentarModel.sequelize.literal(
+            `(SELECT img_url FROM users AS u WHERE u.id = komentar.id_user )`
+          ),
+          "img_user_url",
+        ],
+        [
+          komentarModel.sequelize.literal(
+            `(SELECT COUNT(*) FROM komentars AS s WHERE s.id_recipe = komentar.id_recipe )`
+          ),
+          "total_komentars",
+        ],
       ],
-      include: 
-        {
-          association: "users",
-          attributes: ["name_user"],
-          // where: {name_user : {[Op.not] : null}},
-          
-        },
- 
+
       order: [["created_at", "ASC"]],
       // attributes : ['id']
     });

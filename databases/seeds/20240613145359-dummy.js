@@ -522,24 +522,6 @@ module.exports = {
         { id: 1, deskripsi: "keren abis", id_user: 1, id_recipe: 1 },
         { id: 2, deskripsi: "asli enak", id_user: 2, id_recipe: 1 },
         {
-          id: 3,
-          deskripsi: "sesuai dengan lidah saya",
-          id_user: 3,
-          id_recipe: 1,
-        },
-        {
-          id: 4,
-          deskripsi: "resep ini mengingatkan saya kepada ibu saya",
-          id_user: 4,
-          id_recipe: 1,
-        },
-        {
-          id: 5,
-          deskripsi: "minggu ini harus bisa dicoba",
-          id_user: 5,
-          id_recipe: 1,
-        },
-        {
           id: 6,
           deskripsi: "enakkkkkkkkkk polllllllll",
           id_user: 2,

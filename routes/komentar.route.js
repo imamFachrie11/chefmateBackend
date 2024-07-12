@@ -2,11 +2,17 @@ const express = require("express");
 
 const router = express.Router();
 
-const { createKomentar, deleteKomentar,getKomentar } = require("../controllers/komentar.controller");
-const { komentarCreatevalidation } = require("../middlewares/komentar.middleware");
+const {
+  createKomentar,
+  deleteKomentar,
+  getKomentar,
+} = require("../controllers/komentar.controller");
+const {
+  komentarCreatevalidation,
+} = require("../middlewares/komentar.middleware");
 
 router.post("/create", komentarCreatevalidation, createKomentar);
 router.delete("/delete", deleteKomentar);
-router.get("/", getKomentar);
+router.get("/:id_recipe?", getKomentar);
 
 module.exports = router;
