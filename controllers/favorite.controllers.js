@@ -65,7 +65,7 @@ const deleteFavorite = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const favorite = await Favorite.findByPk(id);
+    const favorite = await Favorite.findOne({ where: { id } });
 
     if (!favorite) {
       return res.status(404).json({ message: "Favorite not found" });
