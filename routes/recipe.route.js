@@ -9,7 +9,7 @@ const {
   createRecipe,
   getRecipes,
   deleteRecipe,
-  getRecipesLimit8
+  getRecipesLimit8,
 } = require("../controllers/recipe.controllers");
 
 router.get("/limit/:limit?", getRecipesLimit8);

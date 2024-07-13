@@ -10,8 +10,9 @@ const {
 const {
   komentarCreatevalidation,
 } = require("../middlewares/komentar.middleware");
+const { validateToken } = require("../middlewares/auth");
 
-router.post("/create", komentarCreatevalidation, createKomentar);
+router.post("/:id_recipe", validateToken, createKomentar);
 router.delete("/delete", deleteKomentar);
 router.get("/:id_recipe?", getKomentar);
 
