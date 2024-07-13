@@ -69,7 +69,7 @@ const deleteBahan = async (req, res, next) => {
   const { id_bahan } = req.params;
   const userId = req.user.id;
 
-  const existingBahan = await BahanModel.findByPk(id_bahan);
+  const existingBahan = await bahanModel.findByPk(id_bahan);
   if (!existingBahan) {
     return res.status(404).json({ message: "Bahan not found" });
   }
