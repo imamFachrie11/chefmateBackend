@@ -16,7 +16,7 @@ router.get("/limit/:limit?", getRecipesLimit8);
 router.get("/:id_recipe?", index);
 router.patch("/:id_recipe?", validateToken, update);
 
-router.post("/recipes", createRecipe);
+router.post("/recipes", validateToken, createRecipe);
 router.get("/recipes/data", getRecipes);
 
 router.delete("/delete", deleteRecipe);

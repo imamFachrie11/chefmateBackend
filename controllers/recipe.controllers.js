@@ -18,6 +18,7 @@ const {
 const createRecipe = async (req, res) => {
   try {
     const { judul, porsi, durasi, deskripsi_resep } = req.body;
+    const userId = req.user.id;
 
     const foto_recipe = req.files.foto_recipe;
     console.log(foto_recipe, "files");
@@ -52,6 +53,7 @@ const createRecipe = async (req, res) => {
           deskripsi_resep,
           foto_recipe: fileName,
           foto_recipe_url: linkPhoto,
+          id_user : userId
         });
         return res.status(201).json({ msg: "Recipe created successfully" });
       } catch (error) {

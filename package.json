@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon index.js --watch index.js --watch package.json --watch .env --watch config/ --watch controllers/ --watch models/ --watch routes/",
     "start": "node index.js",
-    "migrate": "sequelize db:migrate"
+    "migrate": "sequelize db:migrate",
+    "seed": "sequelize db:seed:all"
   },
   "author": "kelompok_8",
   "license": "ISC",
