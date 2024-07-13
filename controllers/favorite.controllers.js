@@ -2,19 +2,29 @@ const { favorite: Favorite, recipe: Recipe } = require("../models");
 
 //  menambahkan favorite baru
 const addFavorite = async (req, res) => {
-  const { userId, id_recipe } = req.body;
-
+  const { id_recipe } = req.params;
+  const userId = req.user.id;
   try {
-    const favorite = await Favorite.create({
-      id_user: userId,
-    });
+
+    const getFavorite = await Favorite.findAll({
+      where: {  id_user: userId,
+        id_recipe : id_recipe } 
+    })
+    console.log(getFavorite);
+    if (getFavorite.length <=0){
+      const favorite = await Favorite.create({
+        id_user: userId,
+        id_recipe: id_recipe,
+      });
+    }
 
     // Menyambungkan favorite dengan recipe
-    await favorite.addRecipe(id_recipe);
+    // await favorite.addRecipe(id_recipe);
 
-    res.status(201).json({ message: "Favorite added successfully", favorite });
+    res.status(201).json({ message: "Favorite added successfully" });
   } catch (error) {
     res.status(500).json({ error: error.message });
+    console.log(error)
   }
 };
 

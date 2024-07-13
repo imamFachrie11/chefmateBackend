@@ -10,7 +10,7 @@ const {
 } = require("../controllers/favorite.controllers");
 const { validateToken } = require("../middlewares/auth");
 
-router.post("/", addFavorite);
+router.post("/:id_recipe?", validateToken, addFavorite);
 router.get("/", validateToken, getFavoriteByIdAndRecipeId);
 router.delete("/:id", deleteFavorite);
 
