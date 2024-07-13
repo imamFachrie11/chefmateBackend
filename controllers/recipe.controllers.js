@@ -273,10 +273,34 @@ const deleteRecipe = async (req, res) => {
   }
 };
 
+
+const getRecipesLimit8 = async (req, res) => {
+  try {
+
+    const { limit = 1 } = req.params;
+
+    const recipes = await recipeModel.findAll({
+      limit: parseInt(limit),
+    });
+    console.log(recipes);
+    
+    return res.status(200).send({
+      message: "success",
+      data: recipes,
+    });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Error fetching data", error: error.message });
+  }
+};
+
 module.exports = {
   index,
   update,
   createRecipe,
   getRecipes,
   deleteRecipe,
+  getRecipesLimit8
 };
