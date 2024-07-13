@@ -105,17 +105,29 @@ module.exports = {
           id_user: 1,
           id_kategori: 1,
         },
-        // {
-        //   id: 2,
-        //   judul: "ayam goreng kak ros mantapp",
-        //   foto_recipe: "foto ayamm by kak ros",
-        //   foto_recipe_url: "image_poto_ayam.jpg",
-        //   porsi: 2,
-        //   durasi: "2 jam",
-        //   deskripsi_resep: "saya terinspirasi dari masakan ibu",
-        //   id_user: 2,
-        //   id_kategori: 2,
-        // },
+        {
+          id: 2,
+          judul: "Ayam Krispy Sambel Kacang mete",
+          foto_recipe: "ayam-kripsi.jpg",
+          foto_recipe_url: "/photos/ayam-kripsi.jpg",
+          porsi: 1,
+          durasi: "30 menit",
+          deskripsi_resep: "saya terinspirasi dari masakan ibu",
+          id_user: 2,
+          id_kategori: 2,
+        },
+        {
+          id: 3,
+          judul: "Ayam Krispy Sambel Kacang mete",
+          foto_recipe: "ayam-kripsi.jpg",
+          foto_recipe_url: "/photos/udang-tepung.jpg",
+          porsi: 1,
+          durasi: "30 menit",
+          deskripsi_resep:
+            "keluarga suka banget sama udang goreng tepung krispi gini.",
+          id_user: 1,
+          id_kategori: 2,
+        },
         // {
         //   id: 3,
         //   judul: "bubur ayam khas solo",
@@ -192,106 +204,115 @@ module.exports = {
         { nama_bahan: "1/4 sdt kaldu jamur", id_recipe: 1 },
         { nama_bahan: "1/4 sdt garam", id_recipe: 1 },
         {
-          nama_bahan: "1 ekor ayam, potong menjadi beberapa bagian",
+          nama_bahan: "1 ayam paha bawah",
           id_recipe: 2,
         },
         {
-          nama_bahan: "2 sendok makan air jeruk nipis atau lemon",
+          nama_bahan: "1 Tepung sajiku ayam goreng",
           id_recipe: 2,
         },
-        { nama_bahan: "2 sendok teh garam", id_recipe: 2 },
-        { nama_bahan: "1 liter minyak untuk menggoreng", id_recipe: 2 },
-        { nama_bahan: "4 siung bawang putih, haluskan", id_recipe: 2 },
-        { nama_bahan: "2 cm jahe, haluskan", id_recipe: 1 },
-        { nama_bahan: "1 sendok makan ketumbar bubuk", id_recipe: 2 },
-        { nama_bahan: "1 sendok teh kunyit bubuk", id_recipe: 2 },
-        { nama_bahan: "1 sendok teh merica bubuk", id_recipe: 2 },
+        { nama_bahan: "Bumbu sambel", id_recipe: 2 },
+        { nama_bahan: "5 cabe rawit", id_recipe: 2 },
+        { nama_bahan: "5 kacang mete", id_recipe: 2 },
+        { nama_bahan: "2 cm jahe, haluskan", id_recipe: 2 },
+        { nama_bahan: "3 bawang merah", id_recipe: 2 },
+        { nama_bahan: "3 bawang putih", id_recipe: 2 },
+        { nama_bahan: "secukupnya Garam", id_recipe: 2 },
         {
-          nama_bahan: "2 sendok makan saus tiram (opsional)",
+          nama_bahan: "secukupnya Lada",
           id_recipe: 2,
         },
-        { nama_bahan: "1 sendok makan kecap asin", id_recipe: 2 },
-        { nama_bahan: "1 sendok makan kecap manis", id_recipe: 2 },
+        { nama_bahan: "secukupnya Penyedap", id_recipe: 2 },
+        { nama_bahan: "Marinasi", id_recipe: 3 },
+        { nama_bahan: "1/4 Udang", id_recipe: 3 },
+        { nama_bahan: "2 siung Bawang Putih", id_recipe: 3 },
+        { nama_bahan: "1 sdt Penyedap Rasa", id_recipe: 3 },
+        { nama_bahan: "1/2 sdt Garam", id_recipe: 3 },
+        { nama_bahan: "Adonan Tepung Kering", id_recipe: 3 },
+        { nama_bahan: "150 gr Tepung Segitiga Biru", id_recipe: 3 },
+        { nama_bahan: "2 sdm Tepung Maizena", id_recipe: 3 },
+        { nama_bahan: "1 sdt Garam", id_recipe: 3 },
+        { nama_bahan: "1 sdt Lada", id_recipe: 3 },
+        { nama_bahan: "1 sdt Baking Powder", id_recipe: 3 },
+        // { nama_bahan: "200 gram beras, cuci bersih", id_recipe: 3 },
+        // { nama_bahan: "1,5 liter air kaldu ayam", id_recipe: 3 },
+        // {
+        //   nama_bahan: "100 gram gula merah, cincang halus",
+        //   id_recipe: 3,
+        // },
+        // { nama_bahan: "1 lembar daun salam", id_recipe: 3 },
+        // { nama_bahan: "2 lembar daun pandan, simpulkan", id_recipe: 3 },
+        // { nama_bahan: "1 sendok teh garam", id_recipe: 3 },
+        // {
+        //   nama_bahan: "1 ekor ayam kampung, potong menjadi beberapa bagian",
+        //   id_recipe: 3,
+        // },
+        // { nama_bahan: "2 liter air", id_recipe: 3 },
+        // { nama_bahan: "2 batang serai, memarkan", id_recipe: 3 },
+        // { nama_bahan: "3 lembar daun jeruk", id_recipe: 3 },
+        // { nama_bahan: "2 lembar daun salam", id_recipe: 3 },
+        // { nama_bahan: "5 cm lengkuas, memarkan", id_recipe: 3 },
+        // { nama_bahan: "3 siung bawang putih, memarkan", id_recipe: 3 },
+        // { nama_bahan: "1 sendok teh merica butir", id_recipe: 3 },
+        // { nama_bahan: "2 sendok teh garam", id_recipe: 3 },
 
-        { nama_bahan: "200 gram beras, cuci bersih", id_recipe: 3 },
-        { nama_bahan: "1,5 liter air kaldu ayam", id_recipe: 3 },
-        {
-          nama_bahan: "100 gram gula merah, cincang halus",
-          id_recipe: 3,
-        },
-        { nama_bahan: "1 lembar daun salam", id_recipe: 3 },
-        { nama_bahan: "2 lembar daun pandan, simpulkan", id_recipe: 3 },
-        { nama_bahan: "1 sendok teh garam", id_recipe: 3 },
-        {
-          nama_bahan: "1 ekor ayam kampung, potong menjadi beberapa bagian",
-          id_recipe: 3,
-        },
-        { nama_bahan: "2 liter air", id_recipe: 3 },
-        { nama_bahan: "2 batang serai, memarkan", id_recipe: 3 },
-        { nama_bahan: "3 lembar daun jeruk", id_recipe: 3 },
-        { nama_bahan: "2 lembar daun salam", id_recipe: 3 },
-        { nama_bahan: "5 cm lengkuas, memarkan", id_recipe: 3 },
-        { nama_bahan: "3 siung bawang putih, memarkan", id_recipe: 3 },
-        { nama_bahan: "1 sendok teh merica butir", id_recipe: 3 },
-        { nama_bahan: "2 sendok teh garam", id_recipe: 3 },
+        // {
+        //   nama_bahan: "4 ekor lele, bersihkan dan buang isi perutnya",
+        //   id_recipe: 4,
+        // },
+        // { nama_bahan: "2 sendok makan air jeruk nipis", id_recipe: 4 },
+        // { nama_bahan: "1 sendok teh garam", id_recipe: 4 },
+        // { nama_bahan: "Minyak untuk menggoreng", id_recipe: 4 },
+        // { nama_bahan: "4 siung bawang putih", id_recipe: 4 },
+        // { nama_bahan: "2 cm kunyit", id_recipe: 4 },
+        // { nama_bahan: "1 sendok teh ketumbar", id_recipe: 4 },
+        // { nama_bahan: "1 sendok teh garam", id_recipe: 4 },
+        // { nama_bahan: "10 buah cabai rawit merah", id_recipe: 4 },
+        // { nama_bahan: "5 buah cabai merah keriting", id_recipe: 4 },
+        // { nama_bahan: "4 siung bawang merah", id_recipe: 4 },
+        // { nama_bahan: "2 siung bawang putih", id_recipe: 4 },
+        // {
+        //   nama_bahan: "1 buah tomat merah, potong-potong",
+        //   id_recipe: 4,
+        // },
+        // { nama_bahan: "1 sendok teh terasi, bakar", id_recipe: 4 },
+        // { nama_bahan: "1 sendok teh gula merah, serut", id_recipe: 4 },
+        // { nama_bahan: "1 sendok teh garam", id_recipe: 4 },
+        // {
+        //   nama_bahan: "1 sendok makan air jeruk limau (atau jeruk nipis)",
+        //   id_recipe: 4,
+        // },
 
-        {
-          nama_bahan: "4 ekor lele, bersihkan dan buang isi perutnya",
-          id_recipe: 4,
-        },
-        { nama_bahan: "2 sendok makan air jeruk nipis", id_recipe: 4 },
-        { nama_bahan: "1 sendok teh garam", id_recipe: 4 },
-        { nama_bahan: "Minyak untuk menggoreng", id_recipe: 4 },
-        { nama_bahan: "4 siung bawang putih", id_recipe: 4 },
-        { nama_bahan: "2 cm kunyit", id_recipe: 4 },
-        { nama_bahan: "1 sendok teh ketumbar", id_recipe: 4 },
-        { nama_bahan: "1 sendok teh garam", id_recipe: 4 },
-        { nama_bahan: "10 buah cabai rawit merah", id_recipe: 4 },
-        { nama_bahan: "5 buah cabai merah keriting", id_recipe: 4 },
-        { nama_bahan: "4 siung bawang merah", id_recipe: 4 },
-        { nama_bahan: "2 siung bawang putih", id_recipe: 4 },
-        {
-          nama_bahan: "1 buah tomat merah, potong-potong",
-          id_recipe: 4,
-        },
-        { nama_bahan: "1 sendok teh terasi, bakar", id_recipe: 4 },
-        { nama_bahan: "1 sendok teh gula merah, serut", id_recipe: 4 },
-        { nama_bahan: "1 sendok teh garam", id_recipe: 4 },
-        {
-          nama_bahan: "1 sendok makan air jeruk limau (atau jeruk nipis)",
-          id_recipe: 4,
-        },
-
-        {
-          nama_bahan:
-            "500 gram daging sapi (bagian sengkel atau sandung lamur), potong-potong",
-          id_recipe: 5,
-        },
-        { nama_bahan: "4 sendok makan kecap manis", id_recipe: 5 },
-        { nama_bahan: "2 sendok makan kecap asin", id_recipe: 5 },
-        {
-          nama_bahan: "2 sendok makan minyak untuk menumis",
-          id_recipe: 5,
-        },
-        { nama_bahan: "500 ml air", id_recipe: 5 },
-        { nama_bahan: "200 ml santan kental", id_recipe: 5 },
-        { nama_bahan: "2 batang serai, memarkan", id_recipe: 5 },
-        { nama_bahan: "3 lembar daun salam", id_recipe: 5 },
-        { nama_bahan: "3 lembar daun jeruk", id_recipe: 5 },
-        { nama_bahan: "1 batang kayu manis", id_recipe: 5 },
-        { nama_bahan: "5 butir cengkeh", id_recipe: 5 },
-        {
-          nama_bahan: "1 sendok teh asam jawa, larutkan dalam sedikit air",
-          id_recipe: 5,
-        },
-        { nama_bahan: "Garam dan gula merah secukupnya", id_recipe: 5 },
-        { nama_bahan: "6 siung bawang merah", id_recipe: 5 },
-        { nama_bahan: "4 siung bawang putih", id_recipe: 5 },
-        { nama_bahan: "2 cm jahe", id_recipe: 5 },
-        { nama_bahan: "2 cm lengkuas", id_recipe: 5 },
-        { nama_bahan: "1 sendok teh ketumbar", id_recipe: 5 },
-        { nama_bahan: "1/2 sendok teh merica", id_recipe: 5 },
-        { nama_bahan: "1/2 sendok teh pala bubuk", id_recipe: 5 },
+        // {
+        //   nama_bahan:
+        //     "500 gram daging sapi (bagian sengkel atau sandung lamur), potong-potong",
+        //   id_recipe: 5,
+        // },
+        // { nama_bahan: "4 sendok makan kecap manis", id_recipe: 5 },
+        // { nama_bahan: "2 sendok makan kecap asin", id_recipe: 5 },
+        // {
+        //   nama_bahan: "2 sendok makan minyak untuk menumis",
+        //   id_recipe: 5,
+        // },
+        // { nama_bahan: "500 ml air", id_recipe: 5 },
+        // { nama_bahan: "200 ml santan kental", id_recipe: 5 },
+        // { nama_bahan: "2 batang serai, memarkan", id_recipe: 5 },
+        // { nama_bahan: "3 lembar daun salam", id_recipe: 5 },
+        // { nama_bahan: "3 lembar daun jeruk", id_recipe: 5 },
+        // { nama_bahan: "1 batang kayu manis", id_recipe: 5 },
+        // { nama_bahan: "5 butir cengkeh", id_recipe: 5 },
+        // {
+        //   nama_bahan: "1 sendok teh asam jawa, larutkan dalam sedikit air",
+        //   id_recipe: 5,
+        // },
+        // { nama_bahan: "Garam dan gula merah secukupnya", id_recipe: 5 },
+        // { nama_bahan: "6 siung bawang merah", id_recipe: 5 },
+        // { nama_bahan: "4 siung bawang putih", id_recipe: 5 },
+        // { nama_bahan: "2 cm jahe", id_recipe: 5 },
+        // { nama_bahan: "2 cm lengkuas", id_recipe: 5 },
+        // { nama_bahan: "1 sendok teh ketumbar", id_recipe: 5 },
+        // { nama_bahan: "1/2 sendok teh merica", id_recipe: 5 },
+        // { nama_bahan: "1/2 sendok teh pala bubuk", id_recipe: 5 },
       ]);
 
       await queryInterface.bulkInsert("langkahs", [
@@ -350,41 +371,82 @@ module.exports = {
           img_url: "/photos/step/ayam-hongkong8.jpg",
         },
         //langkah langkah 2
-        // {
-        //   nama_langkah:
-        //     "Cuci bersih potongan ayam, kemudian lumuri dengan air jeruk nipis atau lemon dan 2 sendok teh garam. Diamkan selama 15 menit, lalu bilas hingga bersih.",
-        //   id_recipe: 2,
-        // },
-        // {
-        //   nama_langkah:
-        //     "Campurkan semua bahan marinasi dalam wadah besar. Masukkan potongan ayam dan aduk hingga semua bagian ayam terlapisi bumbu marinasi. Diamkan selama minimal 30 menit, lebih baik jika didiamkan semalaman di dalam lemari es.",
-        //   id_recipe: 2,
-        // },
-        // {
-        //   nama_langkah:
-        //     "Jika ingin ayam yang lebih renyah, campurkan tepung terigu, tepung maizena, baking powder, garam, merica bubuk, dan paprika bubuk dalam wadah. Gulingkan potongan ayam yang telah dimarinasi ke dalam campuran tepung hingga terlapisi merata.",
-        //   id_recipe: 2,
-        // },
-        // {
-        //   nama_langkah:
-        //     "Panaskan minyak dalam wajan besar dengan api sedang-tinggi. Pastikan minyak cukup banyak agar ayam bisa terendam saat digoreng.",
-        //   id_recipe: 2,
-        // },
-        // {
-        //   nama_langkah:
-        //     "Goreng ayam dalam minyak panas hingga berwarna kecokelatan dan matang sempurna. Jangan terlalu banyak memasukkan ayam dalam sekali goreng agar minyak tetap panas dan ayam tidak terlalu berminyak.",
-        //   id_recipe: 2,
-        // },
-        // {
-        //   nama_langkah:
-        //     "Angkat dan tiriskan ayam goreng di atas kertas minyak atau tisu dapur untuk menghilangkan kelebihan minyak.",
-        //   id_recipe: 2,
-        // },
-        // {
-        //   nama_langkah:
-        //     "Sajikan ayam goreng dengan nasi putih hangat, sambal, dan lalapan sesuai selera.",
-        //   id_recipe: 2,
-        // },
+        {
+          nama_langkah:
+            "Siapkan bumbu basah dan bumbu kering dari tepung sajiku.",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah:
+            "Masukkan ayam ke tepung basah lalu kedalam tepung kering",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah: "Panaskan minyak",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah: "Panaskan minyak",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah: "Goreng ayam hingga matang dan kecoklatan",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah: "Angkat tiriskan",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah: "Siapkan ulekan.",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah:
+            "Goreng kacang mete, cabe, bawang merah dan bawang putih. Lalu tiriskan dan uleg hingga halus.",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah: "Tambahkan penyedap, garam dan lada bubuk.",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah: "Sajikan",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah:
+            "Cuci bersih udang, kupas kulit luar dan buang kotorannya.",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah:
+            "Bahan Marinasi : haluskan bawang putih, campurkan ke udang yang telah dicuci bersih, tambahkan gula, penyedap rasa, dan lada. Diamkan selama 15 menit.",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah:
+            "Adonan Tepung Kering : Campurkan semua adonan tepung kering. Aduk rata.",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah:
+            "Adonan Tepung Cair : Ambil 2-3 sendok adonan tepung kering, lalu beri air hingga agak encer.",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah:
+            "Pegang bagian ekornya, celupkan udang kedalam adonan tepung cair, lalu ke tepung kering, celupkan kembali ke tepung cair, lalu ke tepung kering lagi.",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah: "Goreng dalam minyak panas hingga matang.",
+          id_recipe: 2,
+        },
+        {
+          nama_langkah: "Udang goreng tepung siap disajikan.",
+          id_recipe: 2,
+        },
         // // langkah langkah 3
         // {
         //   nama_langkah:
@@ -521,49 +583,51 @@ module.exports = {
       await queryInterface.bulkInsert("komentars", [
         { deskripsi: "keren abis", id_user: 1, id_recipe: 1 },
         { deskripsi: "asli enak", id_user: 2, id_recipe: 1 },
-        {
-          deskripsi: "enakkkkkkkkkk polllllllll",
-          id_user: 2,
-          id_recipe: 2,
-        },
-        {
-          deskripsi: "ga bisa komennn wenaakkk",
-          id_user: 2,
-          id_recipe: 2,
-        },
-        {
-          deskripsi: "kurang pas di lidah saya karena kurang asin",
-          id_user: 2,
-          id_recipe: 2,
-        },
-        { deskripsi: "wenak pollll", id_user: 3, id_recipe: 3 },
-        {
-          deskripsi: "sekelas bintang lima ",
-          id_user: 3,
-          id_recipe: 3,
-        },
-        {
-          deskripsi: "soal rasa jangan ditanya",
-          id_user: 3,
-          id_recipe: 3,
-        },
-        {
-          deskripsi: "lebih enak dari yang dibeli kemarin ",
-          id_user: 4,
-          id_recipe: 4,
-        },
-        {
-          deskripsi: "mantap patut dicoba ini ",
-          id_user: 4,
-          id_recipe: 4,
-        },
-        { deskripsi: "asiiiikkk ", id_user: 4, id_recipe: 5 },
-        { deskripsi: "xixixixixixi", id_user: 5, id_recipe: 5 },
-        {
-          deskripsi: "kata adik saya siih ini juaranya wkwk",
-          id_user: 5,
-          id_recipe: 5,
-        },
+        { deskripsi: "saya suka ini", id_user: 1, id_recipe: 2 },
+        { deskripsi: "kenapa bisa enak gini ya ?", id_user: 2, id_recipe: 2 },
+        // {
+        //   deskripsi: "enakkkkkkkkkk polllllllll",
+        //   id_user: 2,
+        //   id_recipe: 2,
+        // },
+        // {
+        //   deskripsi: "ga bisa komennn wenaakkk",
+        //   id_user: 2,
+        //   id_recipe: 2,
+        // },
+        // {
+        //   deskripsi: "kurang pas di lidah saya karena kurang asin",
+        //   id_user: 2,
+        //   id_recipe: 2,
+        // },
+        // { deskripsi: "wenak pollll", id_user: 3, id_recipe: 3 },
+        // {
+        //   deskripsi: "sekelas bintang lima ",
+        //   id_user: 3,
+        //   id_recipe: 3,
+        // },
+        // {
+        //   deskripsi: "soal rasa jangan ditanya",
+        //   id_user: 3,
+        //   id_recipe: 3,
+        // },
+        // {
+        //   deskripsi: "lebih enak dari yang dibeli kemarin ",
+        //   id_user: 4,
+        //   id_recipe: 4,
+        // },
+        // {
+        //   deskripsi: "mantap patut dicoba ini ",
+        //   id_user: 4,
+        //   id_recipe: 4,
+        // },
+        // { deskripsi: "asiiiikkk ", id_user: 4, id_recipe: 5 },
+        // { deskripsi: "xixixixixixi", id_user: 5, id_recipe: 5 },
+        // {
+        //   deskripsi: "kata adik saya siih ini juaranya wkwk",
+        //   id_user: 5,
+        //   id_recipe: 5,
+        // },
       ]);
       await queryInterface.bulkInsert("reaksis", [
         { nama_reaksi: "smile", id_user: 1, id_recipe: 1 },
@@ -572,25 +636,33 @@ module.exports = {
       ]);
 
       await queryInterface.bulkInsert("favorites", [
-        { id: 1, id_user: 1, id_recipe: 1 },
-        { id: 2, id_user: 2, id_recipe: 2 },
-        { id: 3, id_user: 3, id_recipe: 3 },
-        { id: 4, id_user: 4, id_recipe: 4 },
-        { id: 5, id_user: 5, id_recipe: 5 },
-        { id: 6, id_user: 2, id_recipe: 1 },
-        { id: 7, id_user: 3, id_recipe: 2 },
-        { id: 8, id_user: 1, id_recipe: 3 },
-        { id: 9, id_user: 5, id_recipe: 4 },
+        { id_user: 1, id_recipe: 1 },
+        { id_user: 2, id_recipe: 1 },
+        { id_user: 1, id_recipe: 2 },
+        { id_user: 2, id_recipe: 2 },
+        // { id: 3, id_user: 3, id_recipe: 3 },
+        // { id: 4, id_user: 4, id_recipe: 4 },
+        // { id: 5, id_user: 5, id_recipe: 5 },
+        // { id: 6, id_user: 2, id_recipe: 1 },
+        // { id: 7, id_user: 3, id_recipe: 2 },
+        // { id: 8, id_user: 1, id_recipe: 3 },
+        // { id: 9, id_user: 5, id_recipe: 4 },
       ]);
 
       await queryInterface.bulkInsert("cooksnaps", [
         {
-          id: 1,
           name_cooksnap: "enak banget, keluarga saya pada suka",
           img: "ayam-hongkong-cooksnap.jpg",
           img_url: "/photos/cooksnap/ayam-hongkong-cooksnap.jpg",
           id_user: 2,
           id_recipe: 1,
+        },
+        {
+          name_cooksnap: "enak banget, keluarga saya pada suka",
+          img: "udang-goreng-cooksnap.jpg",
+          img_url: "/photos/cooksnap/udang-goreng-cooksnap.jpg",
+          id_user: 2,
+          id_recipe: 3,
         },
         // {
         //   id: 2,
