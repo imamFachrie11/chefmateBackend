@@ -12,30 +12,49 @@ const addFavorite = async (req, res) => {
     // Menyambungkan favorite dengan recipe
     await favorite.addRecipe(id_recipe);
 
-    res.status(201).json({ message: 'Favorite added successfully', favorite });
+    res.status(201).json({ message: "Favorite added successfully", favorite });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
 // mengambil favorite berdasarkan ID dan ID resep
-const getFavoriteByIdAndRecipeId = async (req, res) => {      
-  const { id, id_recipe } = req.params;
+const getFavoriteByIdAndRecipeId = async (req, res) => {
+  const userId = req.user.id;
 
   try {
-    const favorite = await Favorite.findByPk(id, {
-      include: [{
-        model: Recipe,
-        as: 'recipes',
-        where: { id: id_recipe },
-      }],
+    const favorite = await Favorite.findAll({
+      where: { id_user: userId },
+      attributes: [
+        "id",
+        "id_user",
+        "id_recipe",
+        [
+          Favorite.sequelize.literal(
+            `(SELECT judul FROM recipes AS r WHERE r.id = favorite.id_recipe )`
+          ),
+          "judul",
+        ],
+        [
+          Favorite.sequelize.literal(
+            `(SELECT foto_recipe_url FROM recipes AS r WHERE r.id = favorite.id_recipe )`
+          ),
+          "foto_recipe_url",
+        ],
+        [
+          Favorite.sequelize.literal(
+            `(SELECT durasi FROM recipes AS r WHERE r.id = favorite.id_recipe )`
+          ),
+          "durasi",
+        ],
+      ],
     });
 
     if (!favorite) {
-      return res.status(404).json({ message: 'Favorite not found' });
+      return res.status(404).json({ message: "Favorite not found" });
     }
 
-    res.status(200).json(favorite);
+    res.status(200).json({ message: "success", data: favorite });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -49,12 +68,12 @@ const deleteFavorite = async (req, res) => {
     const favorite = await Favorite.findByPk(id);
 
     if (!favorite) {
-      return res.status(404).json({ message: 'Favorite not found' });
+      return res.status(404).json({ message: "Favorite not found" });
     }
 
     await favorite.destroy();
 
-    res.status(200).json({ message: 'Favorite deleted successfully' });
+    res.status(200).json({ message: "Favorite deleted successfully" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
