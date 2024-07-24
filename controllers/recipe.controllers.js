@@ -53,7 +53,7 @@ const createRecipe = async (req, res) => {
           deskripsi_resep,
           foto_recipe: fileName,
           foto_recipe_url: linkPhoto,
-          id_user : userId
+          id_user: userId,
         });
         return res.status(201).json({ msg: "Recipe created successfully" });
       } catch (error) {
@@ -70,7 +70,7 @@ const getRecipes = async (req, res) => {
   try {
     const recipes = await recipeModel.findAndCountAll({
       limit: 10,
-      offset: 1,
+      offset: 0,
     });
     return res.status(200).json({ recipes });
   } catch (error) {
@@ -275,17 +275,15 @@ const deleteRecipe = async (req, res) => {
   }
 };
 
-
 const getRecipesLimit8 = async (req, res) => {
   try {
-
     const { limit = 1 } = req.params;
 
     const recipes = await recipeModel.findAll({
       limit: parseInt(limit),
     });
     console.log(recipes);
-    
+
     return res.status(200).send({
       message: "success",
       data: recipes,
@@ -304,5 +302,5 @@ module.exports = {
   createRecipe,
   getRecipes,
   deleteRecipe,
-  getRecipesLimit8
+  getRecipesLimit8,
 };

@@ -11,7 +11,7 @@ const register = async (req, res, next) => {
     attributes: ["email_user"],
   });
   if (emailCheck) {
-    return res.status(400).send({
+    return res.status(400).json({
       message: "Email already registered",
       data: null,
     });
@@ -78,6 +78,31 @@ const login = async (req, res, next) => {
     data: { token }, // token : token
   });
 };
+
+// Menambahkan user dengan email sadam@gmail.com dan password sadam untuk testing
+const addTestUser = async () => {
+  const testEmail = "sadam@gmail.com";
+  const testPassword = "sadam";
+
+  const emailCheck = await userModels.findOne({
+    where: { email_user: testEmail },
+    attributes: ["email_user"],
+  });
+
+  if (!emailCheck) {
+    const passwordHash = await bcrypt.hash(testPassword, 10);
+    await userModels.create({
+      name_user: "Sadam",
+      email_user: testEmail,
+      password_user: passwordHash,
+    });
+    console.log("Test user added: sadam@gmail.com / sadam");
+  } else {
+    console.log("Test user already exists.");
+  }
+};
+
+addTestUser();
 
 module.exports = {
   login,
